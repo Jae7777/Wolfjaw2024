@@ -4,28 +4,6 @@
 [ext_resource type="Script" path="res://scenes/weapons/rifle.gd" id="1_6mh5u"]
 [ext_resource type="PackedScene" uid="uid://bejeg2dm3alah" path="res://scenes/components/spawn_projectile_component.tscn" id="2_a27mx"]
 [ext_resource type="PackedScene" uid="uid://qlkdh1wego30" path="res://scenes/projectiles/bullet.tscn" id="3_5sltq"]
-[ext_resource type="Texture2D" uid="uid://cegf47156qvcp" path="res://assets/WhiteParticle.png" id="4_8vcnx"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8m5vx"]
-blend_mode = 1
-
-[sub_resource type="Gradient" id="Gradient_gm80k"]
-offsets = PackedFloat32Array(0.0983607, 0.147541, 0.418033)
-colors = PackedColorArray(0.992157, 1, 0.00392157, 0, 0.992157, 1, 0.00392157, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bow4r"]
-gradient = SubResource("Gradient_gm80k")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6a18y"]
-particle_flag_disable_z = true
-spread = 147.641
-initial_velocity_min = 76.13
-initial_velocity_max = 92.26
-gravity = Vector3(0, 0, 0)
-scale_min = 0.05
-scale_max = 0.05
-color_ramp = SubResource("GradientTexture1D_bow4r")
-turbulence_enabled = true
 
 [node name="Rifle" type="Node2D"]
 script = ExtResource("1_6mh5u")
