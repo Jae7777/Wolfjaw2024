@@ -6,6 +6,7 @@ extends Node
 @export var base_speed := 350
 @export var run_speed := 10.0 * 60
 @export var defend_speed := 2.0 * 60
+@export var jump_velocity := -600
 
 var face_direction: int = 1
 
@@ -13,7 +14,7 @@ func _physics_process(_delta: float) -> void:
 	target.move_and_slide()
 
 func jump() -> void:
-	target.velocity.y = -600
+	target.velocity.y = jump_velocity
 
 func move_left() -> void:
 	if dodge_timer.time_left == 0:
@@ -29,7 +30,7 @@ func reset_velocity() -> void:
 	if dodge_timer.time_left == 0:
 		target.velocity.x = 0
 
-func dodge() -> void:
+func special_movement() -> void:
 	if dodge_timer.time_left == 0:
 		target.velocity.x = base_speed * 2 * face_direction
 		dodge_timer.start()

@@ -37,7 +37,6 @@ script = ExtResource("2_wrkgf")
 [node name="Sprite2D" type="Sprite2D" parent="Fists"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fists"]
-position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_a7lcu")
 
 [node name="DodgeTimer" type="Timer" parent="."]

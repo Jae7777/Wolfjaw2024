@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bejeg2dm3alah" path="res://scenes/components/spawn_projectile_component.tscn" id="2_a27mx"]
 [ext_resource type="PackedScene" uid="uid://qlkdh1wego30" path="res://scenes/projectiles/bullet.tscn" id="3_5sltq"]
 
-[node name="Rifle" type="Node2D"]
+[node name="Rifle" type="Node2D" node_paths=PackedStringArray("fire_timer")]
 script = ExtResource("1_6mh5u")
+fire_timer = NodePath("FireTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5r2tr")
@@ -22,3 +23,7 @@ sprite = NodePath("../Sprite2D")
 
 [node name="Projectiles" type="Node" parent="."]
 physics_interpolation_mode = 2
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true

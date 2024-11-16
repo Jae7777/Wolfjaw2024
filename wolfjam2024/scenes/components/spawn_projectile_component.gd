@@ -13,7 +13,6 @@ func _physics_process(_delta: float) -> void:
     sprite.look_at(mouse_position)
 
 func spawn_projectile() -> void:
-    print("SPAWN PROJECTILE")
     # Instantiate a new projectile
     var new_projectile = projectile.instantiate()
     

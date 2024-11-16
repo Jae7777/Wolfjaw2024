@@ -35,7 +35,6 @@ func handle_switch() -> void:
   
 func handle_attack() -> void:
   if Input.is_action_just_pressed("attack"):
-    print("AJSAID")
     curr_target.get_node("PlayableAttackComponent").attack()
 
 func handle_move() -> void:
