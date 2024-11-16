@@ -9,7 +9,7 @@ var movement_input := Vector2.ZERO
 
 func _ready() -> void:
   curr_target = target1
-  # Ensure initial z_index setup
+  target2.set_follow(target1)
   update_render_order()
 
 func _physics_process(_delta: float) -> void:
@@ -22,9 +22,13 @@ func handle_switch() -> void:
     if curr_target == target1:
       curr_target = target2
       target1.reset_velocity()
+      target2.unfollow()
+      target1.set_follow(target2)
     else:
       curr_target = target1
       target2.reset_velocity()
+      target1.unfollow()
+      target2.set_follow(target1)
     camera.follow(curr_target)
     update_render_order()
 
