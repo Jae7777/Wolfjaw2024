@@ -9,6 +9,7 @@ extends Node
 @export var jump_velocity := -600
 @export var roll_speed := 600
 @export var animated_sprite: AnimatedSprite2D
+@onready var walk = $Walk
 
 var face_direction: int = 1
 
@@ -21,21 +22,27 @@ func jump() -> void:
     target.velocity.y = jump_velocity
 
 func move_left() -> void:
-  if dodge_timer.time_left == 0:
-    target.velocity.x = -base_speed
-    face_direction = -1
-    animated_sprite.play("walk")
-    animated_sprite.flip_h = true
+    if dodge_timer.time_left == 0:
+        if !walk.playing:  # Start playing the sound only if it isn't already playing
+            walk.play()
+        target.velocity.x = -base_speed
+        face_direction = -1
+        animated_sprite.play("walk")
+        animated_sprite.flip_h = true
 
 func move_right() -> void:
-  if dodge_timer.time_left == 0:
-    target.velocity.x = base_speed
-    face_direction = 1
-    animated_sprite.play("walk")
-    animated_sprite.flip_h = false
+    if dodge_timer.time_left == 0:
+        if !walk.playing:  # Start playing the sound only if it isn't already playing
+            walk.play()
+        target.velocity.x = base_speed
+        face_direction = 1
+        animated_sprite.play("walk")
+        animated_sprite.flip_h = false
 
 func reset_velocity() -> void:
   if dodge_timer.time_left == 0:
+    if walk.playing:  # Stop the sound when movement stops
+        walk.stop()
     target.velocity.x = 0
     animated_sprite.play("idle")
 
