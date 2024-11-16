@@ -1,11 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfnv0oonjxdtd"]
+[gd_scene load_steps=3 format=3 uid="uid://cfnv0oonjxdtd"]
 
 [ext_resource type="Script" path="res://scenes/menus/options.gd" id="1_f4eds"]
+[ext_resource type="Texture2D" uid="uid://c01nln3np5ppi" path="res://assets/MainMenu.jpg" id="2_gs0bq"]
 
 [node name="MarginContainer" type="MarginContainer"]
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = -1
+anchor_left = -0.00104167
+anchor_top = 0.0111111
+anchor_right = 1.00521
+anchor_bottom = 1.02593
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_f4eds")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_gs0bq")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
