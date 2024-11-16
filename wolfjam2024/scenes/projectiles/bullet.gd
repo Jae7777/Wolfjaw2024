@@ -1,3 +1,29 @@
+# bullet.gd
 extends Area2D
 
+var spawn_position: Vector2
+var direction: Vector2
+var damage: int
+var speed: int
 
+func with_data(spawn_position_: Vector2, direction_: Vector2, damage_: int, speed_: int) -> Area2D:
+    spawn_position = spawn_position_
+    direction = direction_
+    damage = damage_
+    speed = speed_
+    return self
+
+func _ready() -> void:
+    position = spawn_position
+    # Optionally rotate the bullet sprite to face the direction of movement
+    rotation = direction.angle()
+
+func _physics_process(delta: float) -> void:
+    # Move in the direction at constant speed
+    position += direction * speed * delta
+    
+    # Optional: Delete bullet when it goes too far off screen
+    var viewport_rect = get_viewport_rect()
+    if !viewport_rect.has_point(position):
+        
+      

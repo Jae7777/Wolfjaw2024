@@ -6,6 +6,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yh8r7"]
 
 [node name="Bullet" type="Area2D"]
+scale = Vector2(0.05, 0.05)
 script = ExtResource("1_11p7g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

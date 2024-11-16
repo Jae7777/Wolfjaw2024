@@ -1,17 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://co6op0dk5axm1"]
+[gd_scene load_steps=5 format=3 uid="uid://co6op0dk5axm1"]
 
 [ext_resource type="Texture2D" uid="uid://tec0knii7luu" path="res://assets/weapons/Mosin Nagant-Scope.png" id="1_5r2tr"]
+[ext_resource type="Script" path="res://scenes/weapons/rifle.gd" id="1_6mh5u"]
 [ext_resource type="PackedScene" uid="uid://bejeg2dm3alah" path="res://scenes/components/spawn_projectile_component.tscn" id="2_a27mx"]
 [ext_resource type="PackedScene" uid="uid://qlkdh1wego30" path="res://scenes/projectiles/bullet.tscn" id="3_5sltq"]
 
 [node name="Rifle" type="Node2D"]
+script = ExtResource("1_6mh5u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5r2tr")
 
-[node name="ProjectileSpawnPoint" type="Node2D" parent="."]
+[node name="ProjectileSpawnPoint" type="Node2D" parent="Sprite2D"]
 position = Vector2(129, -3)
 
-[node name="SpawnProjectileComponent" parent="." node_paths=PackedStringArray("projectile_spawn_point") instance=ExtResource("2_a27mx")]
+[node name="SpawnProjectileComponent" parent="." node_paths=PackedStringArray("projectile_spawn_point", "sprite") instance=ExtResource("2_a27mx")]
+scale = Vector2(0.994365, 0.96835)
 projectile = ExtResource("3_5sltq")
-projectile_spawn_point = NodePath("../ProjectileSpawnPoint")
+projectile_spawn_point = NodePath("../Sprite2D/ProjectileSpawnPoint")
+sprite = NodePath("../Sprite2D")
+
+[node name="Projectiles" type="Node" parent="."]
+physics_interpolation_mode = 2
