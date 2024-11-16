@@ -16,9 +16,9 @@ func set_follow(new_target: CharacterBody2D) -> void:
 
 func follow() -> void:
   if follow_target:
-	if follow_target.global_position.x > target.global_position.x + 200:
-	  movement_component.move_right()
-	elif follow_target.global_position.x < target.global_position.x - 200:
-	  movement_component.move_left()
-	else:
-	  movement_component.reset_velocity()
+    if follow_target.global_position.x > target.global_position.x + 200:
+      movement_component.move_right()
+    elif follow_target.global_position.x < target.global_position.x - 200:
+      movement_component.move_left()
+    else:
+      movement_component.reset_velocity()
