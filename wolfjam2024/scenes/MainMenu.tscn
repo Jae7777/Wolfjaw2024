@@ -5,10 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://c01nln3np5ppi" path="res://assets/MainMenu.jpg" id="3_8ngqc"]
 
 [node name="MainMenu" type="MarginContainer"]
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 0
 script = ExtResource("1_l3mcf")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("3_8ngqc")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -51,12 +61,6 @@ mouse_filter = 0
 [node name="Characters" type="TextureRect" parent="HBoxContainer/CenterContainer"]
 layout_mode = 2
 stretch_mode = 3
-
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -1
-layout_mode = 2
-texture = ExtResource("3_8ngqc")
-expand_mode = 1
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/Options" to="." method="_on_options_pressed"]
