@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqdfjntq0rnt5"]
+[gd_scene load_steps=10 format=3 uid="uid://dqdfjntq0rnt5"]
 
+[ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="1_jwfy5"]
 [ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_drp5m"]
-[ext_resource type="PackedScene" uid="uid://cgkguxs525cxq" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="4_enfr0"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
-[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
 blend_mode = 1
@@ -18,6 +19,10 @@ height = 125.927
 collision_layer = 4
 collision_mask = 3
 
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("target", "healthbar") instance=ExtResource("1_jwfy5")]
+target = NodePath("..")
+healthbar = NodePath("../HealthBar")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_ltkao")
 scale = Vector2(0.99366, 1)
@@ -28,7 +33,6 @@ scale = Vector2(1.00058, 1.00213)
 shape = SubResource("CapsuleShape2D_2p6p4")
 
 [node name="Fists" parent="." instance=ExtResource("2_fmxsh")]
-damage = 2
 
 [node name="DodgeTimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -37,11 +41,6 @@ one_shot = true
 [node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer") instance=ExtResource("3_ud7by")]
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
-base_speed = null
-run_speed = null
-defend_speed = null
-jump_velocity = null
-roll_speed = null
 
 [node name="PlayableFollowComponent" parent="." node_paths=PackedStringArray("movement_component", "target") instance=ExtResource("4_enfr0")]
 movement_component = NodePath("../PlayableMoveComponent")
@@ -53,3 +52,12 @@ target = NodePath("..")
 [node name="PlayableAttackComponent" parent="." node_paths=PackedStringArray("target", "weapon") instance=ExtResource("5_xvpaw")]
 target = NodePath("..")
 weapon = NodePath("../Fists")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -55.0
+offset_top = -122.0
+offset_right = 59.0
+offset_bottom = -95.0
+max_value = 3.0
+rounded = true
+show_percentage = false
