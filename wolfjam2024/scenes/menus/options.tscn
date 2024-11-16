@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfnv0oonjxdtd"]
+
+[ext_resource type="Script" path="res://scenes/menus/options.gd" id="1_f4eds"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_f4eds")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="OptionsLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+Controls
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Move Left  --------------  A
+
+Move Right  -------------  D
+
+Jump  ----------------------  W
+
+"
+horizontal_alignment = 1
+
+[node name="return_to_main_menu" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back To Main Menu"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/return_to_main_menu" to="." method="_on_return_to_main_menu_pressed"]
