@@ -6,12 +6,9 @@ extends Node
 @export var base_speed := 350
 @export var run_speed := 10.0 * 60
 @export var defend_speed := 2.0 * 60
-<<<<<<< HEAD
 @export var jump_velocity := -600
 @export var roll_speed := 600
-=======
 @export var animated_sprite: AnimatedSprite2D
->>>>>>> chris
 
 var face_direction: int = 1
 
