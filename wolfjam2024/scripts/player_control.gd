@@ -9,6 +9,8 @@ var movement_input := Vector2.ZERO
 
 func _ready() -> void:
   curr_target = target1
+  # Ensure initial z_index setup
+  update_render_order()
 
 func _physics_process(delta: float) -> void:
   if curr_target:
@@ -24,6 +26,7 @@ func handle_switch() -> void:
       curr_target = target1
       target2.velocity = Vector2.ZERO
     camera.follow(curr_target)
+    update_render_order()
 
 func handle_move(delta: float) -> void:
   if Input.is_action_pressed('move_left'):
@@ -36,3 +39,12 @@ func handle_move(delta: float) -> void:
   curr_target.velocity.x = movement_input.x * curr_target.base_speed * delta
   if Input.is_action_just_pressed('jump') and curr_target.is_on_floor():
     curr_target.velocity.y = -600
+
+func update_render_order() -> void:
+  # Ensure the current target is rendered above the other character
+  if curr_target == target1:
+    target1.z_index = 1
+    target2.z_index = 0
+  else:
+    target1.z_index = 0
+    target2.z_index = 1
