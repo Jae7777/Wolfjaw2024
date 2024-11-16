@@ -28,3 +28,8 @@ func move_right() -> void:
 func reset_velocity() -> void:
 	if dodge_timer.time_left == 0:
 		target.velocity.x = 0
+
+func dodge() -> void:
+	if dodge_timer.time_left == 0:
+		target.velocity.x = base_speed * 2 * face_direction
+		dodge_timer.start()
