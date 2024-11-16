@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqdfjntq0rnt5"]
+[gd_scene load_steps=7 format=3 uid="uid://dqdfjntq0rnt5"]
 
-[ext_resource type="Script" path="res://scenes/entities/playables/peepaw.gd" id="1_t1rck"]
 [ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_drp5m"]
+[ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
+[ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="4_enfr0"]
+[ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
 blend_mode = 1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p6p4"]
-radius = 62.9637
+radius = 62.9635
 height = 125.927
 
 [node name="Peepaw" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
-script = ExtResource("1_t1rck")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_ltkao")
@@ -27,3 +28,14 @@ shape = SubResource("CapsuleShape2D_2p6p4")
 [node name="DodgeTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer") instance=ExtResource("3_ud7by")]
+target = NodePath("..")
+dodge_timer = NodePath("../DodgeTimer")
+
+[node name="PlayableFollowComponent" parent="." node_paths=PackedStringArray("movement_component", "target") instance=ExtResource("4_enfr0")]
+movement_component = NodePath("../PlayableMoveComponent")
+target = NodePath("..")
+
+[node name="GravityComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_pvhaj")]
+target = NodePath("..")
