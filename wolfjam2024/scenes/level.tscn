@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cngcomnkext5m"]
+[gd_scene load_steps=6 format=3 uid="uid://cngcomnkext5m"]
 
 [ext_resource type="PackedScene" uid="uid://cqlwb0dw7bkvc" path="res://scenes/camera.tscn" id="1_uu85q"]
 [ext_resource type="PackedScene" uid="uid://cjyugyujv4o7o" path="res://scenes/entities/playables/player.tscn" id="2_hm2kl"]
+[ext_resource type="Script" path="res://scripts/player_control.gd" id="3_r8k6y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ftcyr"]
 
@@ -27,5 +28,13 @@ mesh = SubResource("BoxMesh_ftcyr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World"]
 shape = SubResource("RectangleShape2D_64lo2")
 
-[node name="Player1" parent="." instance=ExtResource("2_hm2kl")]
+[node name="Player1" parent="." groups=["Player1"] instance=ExtResource("2_hm2kl")]
 position = Vector2(7, -179)
+
+[node name="Player2" parent="." groups=["Player1"] instance=ExtResource("2_hm2kl")]
+position = Vector2(-149, -179)
+
+[node name="PlayerControl" type="Node" parent="." node_paths=PackedStringArray("target1", "target2")]
+script = ExtResource("3_r8k6y")
+target1 = NodePath("../Player1")
+target2 = NodePath("../Player2")
