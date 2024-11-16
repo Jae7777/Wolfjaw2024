@@ -125,9 +125,9 @@ weapon = NodePath("../Fists")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -62.0
-offset_top = -190.0
+offset_top = -276.0
 offset_right = 52.0
-offset_bottom = -163.0
+offset_bottom = -249.0
 max_value = 3.0
 rounded = true
 show_percentage = false
