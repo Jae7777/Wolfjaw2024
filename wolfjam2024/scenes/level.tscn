@@ -31,7 +31,7 @@ mesh = SubResource("BoxMesh_ftcyr")
 shape = SubResource("RectangleShape2D_64lo2")
 
 [node name="Peepaw" parent="." instance=ExtResource("2_cwblp")]
-position = Vector2(0, -167)
+position = Vector2(26, -212)
 
 [node name="Kid" parent="." instance=ExtResource("3_8va15")]
 position = Vector2(-169, -167)
