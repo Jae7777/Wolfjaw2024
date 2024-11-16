@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # movement
-@export var base_speed := 6.0 * 60
+@export var base_speed := 20000
 @export var run_speed := 10.0 * 60
 @export var defend_speed := 2.0 * 60
 
@@ -22,3 +22,4 @@ func handle_move(delta: float) -> void:
 		movement_input.x = 0
 
 	self.velocity = movement_input * base_speed * delta
+	print("Player velocity: ", self.velocity)

@@ -23,7 +23,6 @@ texture = ExtResource("1_mk3mo")
 shape = SubResource("RectangleShape2D_64lo2")
 
 [node name="Player1" parent="." instance=ExtResource("2_hm2kl")]
-base_speed = 600.0
 
 [node name="Player2" type="CharacterBody2D" parent="."]
 position = Vector2(-241, -154)

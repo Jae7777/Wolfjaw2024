@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ycr"]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -154)
+position = Vector2(7, -154)
 script = ExtResource("1_otett")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
