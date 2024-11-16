@@ -3,6 +3,7 @@ extends Node2D
 
 @export var projectile: PackedScene
 @export var projectile_spawn_point: Node2D
+@export var particles: GPUParticles2D
 
 func spawn_projectile() -> void:
   var new_projectile = projectile.instance()
