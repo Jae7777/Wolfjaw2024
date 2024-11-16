@@ -1,20 +1,34 @@
 [gd_scene load_steps=4 format=3 uid="uid://cngcomnkext5m"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_32qsj"]
-
-[sub_resource type="MeshTexture" id="MeshTexture_3wwcq"]
+[ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="1_mk3mo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64lo2"]
 size = Vector2(92, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ycr"]
+
 [node name="Level" type="Node2D"]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(32, 1)
-scale = Vector2(92.25, 6.5)
-mesh = SubResource("BoxMesh_32qsj")
-texture = SubResource("MeshTexture_3wwcq")
+[node name="World" type="StaticBody2D" parent="."]
+position = Vector2(2, 0)
+scale = Vector2(30, 30)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(32, 1)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="World"]
+position = Vector2(-4.24683e-07, 1.49012e-08)
+scale = Vector2(92, 6)
+texture = ExtResource("1_mk3mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World"]
 shape = SubResource("RectangleShape2D_64lo2")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(0, -155)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_mk3mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(6.30689, -6.2706)
+shape = SubResource("RectangleShape2D_g3ycr")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
