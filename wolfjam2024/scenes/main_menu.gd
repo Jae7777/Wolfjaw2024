@@ -5,10 +5,10 @@ func _ready():
 	
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene("res://scenes/level.tscn")
+	get_tree().change_scene_to_file("res://scenes/level.tscn")
 
 func _on_options_pressed() -> void:
-	get_tree().change_scene("res://scenes/menus/options.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/options.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
