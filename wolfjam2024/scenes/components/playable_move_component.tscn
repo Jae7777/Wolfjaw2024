@@ -4,8 +4,3 @@
 
 [node name="PlayableMoveComponent" type="Node"]
 script = ExtResource("1_ah4ro")
-base_speed = null
-run_speed = null
-defend_speed = null
-jump_velocity = null
-roll_speed = null
