@@ -13,7 +13,7 @@ size = Vector2(92, 6)
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_uu85q")]
 position = Vector2(0, -385)
-target = NodePath("../Player1")
+target = NodePath("../Father")
 
 [node name="World" type="StaticBody2D" parent="."]
 position = Vector2(2, 0)
@@ -28,14 +28,16 @@ mesh = SubResource("BoxMesh_ftcyr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World"]
 shape = SubResource("RectangleShape2D_64lo2")
 
-[node name="Player1" parent="." groups=["Player1"] instance=ExtResource("2_hm2kl")]
+[node name="Father" parent="." groups=["Player1"] instance=ExtResource("2_hm2kl")]
 position = Vector2(7, -179)
+scale = Vector2(1.2, 1.2)
 
 [node name="Player2" parent="." groups=["Player1"] instance=ExtResource("2_hm2kl")]
 position = Vector2(-149, -179)
+base_speed = 300
 
 [node name="PlayerControl" type="Node" parent="." node_paths=PackedStringArray("target1", "target2", "camera")]
 script = ExtResource("3_r8k6y")
-target1 = NodePath("../Player1")
+target1 = NodePath("../Father")
 target2 = NodePath("../Player2")
 camera = NodePath("../Camera2D")
