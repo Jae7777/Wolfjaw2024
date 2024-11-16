@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqdfjntq0rnt5"]
+
+[ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_drp5m"]
+[ext_resource type="Script" path="res://scenes/entities/playables/fists.gd" id="2_wrkgf"]
+[ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
+[ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="4_enfr0"]
+[ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
+[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
+blend_mode = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p6p4"]
+radius = 62.9635
+height = 125.927
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7lcu"]
+
+[node name="Peepaw" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_ltkao")
+scale = Vector2(0.99366, 1)
+texture = ExtResource("2_drp5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.00058, 1.00213)
+shape = SubResource("CapsuleShape2D_2p6p4")
+
+[node name="Fists" type="Area2D" parent="."]
+position = Vector2(90, 0)
+scale = Vector2(3.2, 5.92)
+script = ExtResource("2_wrkgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fists"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fists"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_a7lcu")
+
+[node name="DodgeTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer") instance=ExtResource("3_ud7by")]
+target = NodePath("..")
+dodge_timer = NodePath("../DodgeTimer")
+
+[node name="PlayableFollowComponent" parent="." node_paths=PackedStringArray("movement_component", "target") instance=ExtResource("4_enfr0")]
+movement_component = NodePath("../PlayableMoveComponent")
+target = NodePath("..")
+
+[node name="GravityComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_pvhaj")]
+target = NodePath("..")
+
+[node name="PlayableAttackComponent" parent="." instance=ExtResource("5_xvpaw")]
+
+[connection signal="area_entered" from="Fists" to="Fists" method="_on_area_entered"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://hvm7mda56aj7"]
+
+[ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="1_tx5jc"]
+[ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="2_f31ti"]
+[ext_resource type="PackedScene" uid="uid://co6op0dk5axm1" path="res://scenes/weapons/rifle.tscn" id="2_sgf03"]
+[ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="3_gpq61"]
+[ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="4_b4oee"]
+[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axra0"]
+
+[node name="Kid" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tx5jc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.30689, -6.2706)
+shape = SubResource("RectangleShape2D_axra0")
+
+[node name="Rifle" parent="." instance=ExtResource("2_sgf03")]
+position = Vector2(-251, -153)
+rotation = 0.116627
+
+[node name="DodgeTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer") instance=ExtResource("2_f31ti")]
+target = NodePath("..")
+dodge_timer = NodePath("../DodgeTimer")
+base_speed = 600
+
+[node name="PlayableFollowComponent" parent="." node_paths=PackedStringArray("movement_component", "target") instance=ExtResource("3_gpq61")]
+movement_component = NodePath("../PlayableMoveComponent")
+target = NodePath("..")
+
+[node name="GravityComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_b4oee")]
+target = NodePath("..")
+
+[node name="PlayableAttackComponent" parent="." node_paths=PackedStringArray("target", "weapon") instance=ExtResource("6_1r636")]
+target = NodePath("..")
+weapon = NodePath("../Rifle")
