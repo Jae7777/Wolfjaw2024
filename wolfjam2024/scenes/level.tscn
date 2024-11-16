@@ -1,37 +1,31 @@
 [gd_scene load_steps=5 format=3 uid="uid://cngcomnkext5m"]
 
-[ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="1_mk3mo"]
+[ext_resource type="PackedScene" uid="uid://cqlwb0dw7bkvc" path="res://scenes/camera.tscn" id="1_uu85q"]
 [ext_resource type="PackedScene" uid="uid://cjyugyujv4o7o" path="res://scenes/entities/playables/player.tscn" id="2_hm2kl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ftcyr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64lo2"]
 size = Vector2(92, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ycr"]
-
 [node name="Level" type="Node2D"]
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_uu85q")]
+position = Vector2(0, -385)
+target = NodePath("../Player1")
 
 [node name="World" type="StaticBody2D" parent="."]
 position = Vector2(2, 0)
 scale = Vector2(30, 30)
+collision_mask = 0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="World"]
 position = Vector2(-4.24683e-07, 1.49012e-08)
 scale = Vector2(92, 6)
-texture = ExtResource("1_mk3mo")
+mesh = SubResource("BoxMesh_ftcyr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World"]
 shape = SubResource("RectangleShape2D_64lo2")
 
 [node name="Player1" parent="." instance=ExtResource("2_hm2kl")]
-
-[node name="Player2" type="CharacterBody2D" parent="."]
-position = Vector2(-241, -154)
-
-[node name="Sprite2D" type="Sprite2D" parent="Player2"]
-texture = ExtResource("1_mk3mo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
-scale = Vector2(6.30689, -6.2706)
-shape = SubResource("RectangleShape2D_g3ycr")
-
-[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(7, -179)

@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	handle_move(delta)
 
 	move_and_slide()
-	print("Player position: ", self.position)
+	print(is_on_floor())
 
 func handle_move(delta: float) -> void:
 	if Input.is_action_pressed('move_left'):
@@ -21,5 +21,8 @@ func handle_move(delta: float) -> void:
 	else:
 		movement_input.x = 0
 
-	self.velocity = movement_input * base_speed * delta
-	print("Player velocity: ", self.velocity)
+	self.velocity.x = movement_input.x * base_speed * delta
+	if not is_on_floor():
+		self.velocity.y += ProjectSettings.get_setting("physics/2d/default_gravity") * delta
+	else:
+		self.velocity.y = 0

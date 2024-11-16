@@ -7,6 +7,8 @@
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(7, -154)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_otett")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
