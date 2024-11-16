@@ -25,8 +25,28 @@ scale_min = 0.05
 scale_max = 0.05
 color_ramp = SubResource("GradientTexture1D_ijw0x")
 
-[node name="Rifle" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_typda"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_7m6cd"]
+offsets = PackedFloat32Array(0.131148, 0.213115, 0.803279)
+colors = PackedColorArray(0.945098, 1, 0, 0.054902, 0.945312, 1, 0, 1, 1, 0.0703125, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ijw0x"]
+gradient = SubResource("Gradient_7m6cd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ymmiw"]
+particle_flag_disable_z = true
+spread = 97.584
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.05
+color_ramp = SubResource("GradientTexture1D_ijw0x")
+
+[node name="Rifle" type="Node2D" node_paths=PackedStringArray("fire_timer")]
 script = ExtResource("1_6mh5u")
+fire_timer = NodePath("FireTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5r2tr")
@@ -49,3 +69,7 @@ sprite = NodePath("../Sprite2D")
 
 [node name="Projectiles" type="Node" parent="."]
 physics_interpolation_mode = 2
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
