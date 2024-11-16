@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var defend_speed := 2.0 * 60
 
 var follow_target: CharacterBody2D
+var face_direction: int = 1
 
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
@@ -35,17 +36,21 @@ func jump() -> void:
 	velocity.y = -600
 
 func move_left() -> void:
-	if $RollTimer.time_left == 0:
+	if $DodgeTimer.time_left == 0:
 		velocity.x = -base_speed
+		face_direction = -1
 
 func move_right() -> void:
-	if $RollTimer.time_left == 0:
+	if $DodgeTimer.time_left == 0:
 		velocity.x = base_speed
+		face_direction = 1
 
 func reset_velocity() -> void:
-	if $RollTimer.time_left == 0:
+	if $DodgeTimer.time_left == 0:
 		velocity.x = 0
 
-func roll() -> void:
-	velocity.x = base_speed * 2
-	$RollTimer.start()
+func dodge() -> void:
+	if $DodgeTimer.time_left == 0:
+		print("Rolling")
+		velocity.x = base_speed * 2 * face_direction
+		$DodgeTimer.start()

@@ -17,5 +17,6 @@ texture = ExtResource("1_tx5jc")
 scale = Vector2(6.30689, -6.2706)
 shape = SubResource("RectangleShape2D_axra0")
 
-[node name="RollTimer" type="Timer" parent="."]
+[node name="DodgeTimer" type="Timer" parent="."]
+wait_time = 0.25
 one_shot = true
