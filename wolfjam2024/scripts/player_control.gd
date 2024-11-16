@@ -42,7 +42,7 @@ func handle_move() -> void:
 
   if Input.is_action_just_pressed('jump') and curr_target.is_on_floor():
     curr_target.get_node("PlayableMoveComponent").jump()
-
+  
   if Input.is_action_just_pressed('dodge'):
     curr_target.get_node("PlayableMoveComponent").dodge()
 

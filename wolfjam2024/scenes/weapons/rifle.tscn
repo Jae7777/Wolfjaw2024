@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://co6op0dk5axm1"]
+[gd_scene load_steps=4 format=3 uid="uid://co6op0dk5axm1"]
 
 [ext_resource type="Texture2D" uid="uid://tec0knii7luu" path="res://assets/weapons/Mosin Nagant-Scope.png" id="1_5r2tr"]
 [ext_resource type="PackedScene" uid="uid://bejeg2dm3alah" path="res://scenes/components/spawn_projectile_component.tscn" id="2_a27mx"]
+[ext_resource type="PackedScene" uid="uid://qlkdh1wego30" path="res://scenes/projectiles/bullet.tscn" id="3_5sltq"]
 
 [node name="Rifle" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5r2tr")
 
-[node name="SpawnProjectileComponent" parent="." instance=ExtResource("2_a27mx")]
+[node name="ProjectileSpawnPoint" type="Node2D" parent="."]
+position = Vector2(129, -3)
+
+[node name="SpawnProjectileComponent" parent="." node_paths=PackedStringArray("projectile_spawn_point") instance=ExtResource("2_a27mx")]
+projectile = ExtResource("3_5sltq")
+projectile_spawn_point = NodePath("../ProjectileSpawnPoint")
