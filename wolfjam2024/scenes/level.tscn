@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cngcomnkext5m"]
+[gd_scene load_steps=8 format=3 uid="uid://cngcomnkext5m"]
 
 [ext_resource type="PackedScene" uid="uid://cqlwb0dw7bkvc" path="res://scenes/camera.tscn" id="1_uu85q"]
-[ext_resource type="PackedScene" uid="uid://cjyugyujv4o7o" path="res://scenes/entities/playables/player.tscn" id="2_hm2kl"]
+[ext_resource type="PackedScene" uid="uid://dqdfjntq0rnt5" path="res://scenes/entities/playables/peepaw.tscn" id="2_cwblp"]
+[ext_resource type="PackedScene" uid="uid://hvm7mda56aj7" path="res://scenes/entities/playables/kid.tscn" id="3_8va15"]
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="3_r8k6y"]
+[ext_resource type="PackedScene" uid="uid://bnuv5awh0reem" path="res://scenes/entities/enemies/enemy.tscn" id="5_27dix"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ftcyr"]
 
@@ -13,7 +15,7 @@ size = Vector2(92, 6)
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_uu85q")]
 position = Vector2(0, -385)
-target = NodePath("../Father")
+target = NodePath("../Peepaw")
 
 [node name="World" type="StaticBody2D" parent="."]
 position = Vector2(2, 0)
@@ -28,16 +30,17 @@ mesh = SubResource("BoxMesh_ftcyr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World"]
 shape = SubResource("RectangleShape2D_64lo2")
 
-[node name="Father" parent="." groups=["Player1"] instance=ExtResource("2_hm2kl")]
-position = Vector2(7, -179)
-scale = Vector2(1.2, 1.2)
+[node name="Peepaw" parent="." instance=ExtResource("2_cwblp")]
+position = Vector2(0, -167)
 
-[node name="Player2" parent="." groups=["Player1"] instance=ExtResource("2_hm2kl")]
-position = Vector2(-149, -179)
-base_speed = 300
+[node name="Kid" parent="." instance=ExtResource("3_8va15")]
+position = Vector2(-169, -167)
 
 [node name="PlayerControl" type="Node" parent="." node_paths=PackedStringArray("target1", "target2", "camera")]
 script = ExtResource("3_r8k6y")
-target1 = NodePath("../Father")
-target2 = NodePath("../Player2")
+target1 = NodePath("../Peepaw")
+target2 = NodePath("../Kid")
 camera = NodePath("../Camera2D")
+
+[node name="Enemy" parent="." instance=ExtResource("5_27dix")]
+position = Vector2(432, -189)
