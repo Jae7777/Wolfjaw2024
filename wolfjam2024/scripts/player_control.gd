@@ -31,6 +31,10 @@ func handle_switch() -> void:
 	  target2.get_node("PlayableFollowComponent").set_follow(target1)
 	camera.follow(curr_target)
 	update_render_order()
+	
+func handle_attack() -> void:
+	if Input.is_action_just_pressed("attack"):
+		curr_target.attack()
 
 func handle_move() -> void:
   if Input.is_action_pressed('move_left'):
