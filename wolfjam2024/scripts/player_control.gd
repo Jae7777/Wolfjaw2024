@@ -43,11 +43,13 @@ func handle_move() -> void:
     curr_target.get_node("PlayableMoveComponent").move_right()
   else:
     curr_target.get_node("PlayableMoveComponent").reset_velocity()
+    curr_target.get_node("PlayableMoveComponent").reset_velocity()
 
   if Input.is_action_just_pressed('jump') and curr_target.is_on_floor():
     curr_target.get_node("PlayableMoveComponent").jump()
 
   if Input.is_action_just_pressed('dodge'):
+    curr_target.get_node("PlayableMoveComponent").dodge()
     curr_target.get_node("PlayableMoveComponent").dodge()
 
 func update_render_order() -> void:
@@ -55,6 +57,10 @@ func update_render_order() -> void:
   if curr_target == target1:
     target1.z_index = 1
     target2.z_index = 0
+    target1.z_index = 1
+    target2.z_index = 0
   else:
+    target1.z_index = 0
+    target2.z_index = 1
     target1.z_index = 0
     target2.z_index = 1
