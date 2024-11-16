@@ -11,4 +11,4 @@ func _on_area_entered(area: Area2D) -> void:
     area.get_node("HealthComponent").take_damage(damage)
 
 func attack() -> void:
-  attack_timer.start()
+  attack_timer.start() 
