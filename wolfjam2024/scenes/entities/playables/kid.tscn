@@ -1,12 +1,24 @@
 [gd_scene load_steps=9 format=3 uid="uid://cp4uowlnbh4dd"]
 
-[ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="1_tx5jc"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="2_f31ti"]
 [ext_resource type="PackedScene" uid="uid://co6op0dk5axm1" path="res://scenes/weapons/rifle.tscn" id="2_sgf03"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="3_gpq61"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="4_b4oee"]
 [ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="7_8hd1u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_82786"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axra0"]
 
@@ -23,8 +35,10 @@ max_value = 3.0
 rounded = true
 show_percentage = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_tx5jc")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_82786")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.30689, -6.2706)
@@ -38,11 +52,15 @@ rotation = 0.116627
 wait_time = 0.25
 one_shot = true
 
-[node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer") instance=ExtResource("2_f31ti")]
+[node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer", "animated_sprite") instance=ExtResource("2_f31ti")]
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
 base_speed = 600
+run_speed = 600.0
+defend_speed = 120.0
+jump_velocity = -600
 roll_speed = 0
+animated_sprite = NodePath("../Sprite2D")
 
 [node name="PlayableFollowComponent" parent="." node_paths=PackedStringArray("movement_component", "target") instance=ExtResource("3_gpq61")]
 movement_component = NodePath("../PlayableMoveComponent")
