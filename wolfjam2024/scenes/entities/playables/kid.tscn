@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://hvm7mda56aj7"]
+[gd_scene load_steps=7 format=3 uid="uid://hvm7mda56aj7"]
 
 [ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="1_tx5jc"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="2_f31ti"]
+[ext_resource type="PackedScene" uid="uid://co6op0dk5axm1" path="res://scenes/weapons/rifle.tscn" id="2_sgf03"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="3_gpq61"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="4_b4oee"]
 
@@ -17,6 +18,10 @@ texture = ExtResource("1_tx5jc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.30689, -6.2706)
 shape = SubResource("RectangleShape2D_axra0")
+
+[node name="Rifle" parent="." instance=ExtResource("2_sgf03")]
+position = Vector2(-251, -153)
+rotation = 0.116627
 
 [node name="DodgeTimer" type="Timer" parent="."]
 wait_time = 0.25
