@@ -4,4 +4,5 @@ extends Node
 @export var weapon: Node2D
 
 func attack() -> void:
+  print("KID ATTACK")
   weapon.attack()
