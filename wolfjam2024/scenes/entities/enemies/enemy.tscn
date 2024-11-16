@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnuv5awh0reem"]
+[gd_scene load_steps=6 format=3 uid="uid://bnuv5awh0reem"]
 
+[ext_resource type="Script" path="res://scenes/entities/enemies/enemy.gd" id="1_bw6ye"]
 [ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="1_vqy7g"]
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="2_8hhdt"]
 
@@ -9,9 +10,11 @@ blend_mode = 3
 [sub_resource type="CircleShape2D" id="CircleShape2D_55tr1"]
 radius = 63.3877
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" node_paths=PackedStringArray("health_component")]
 collision_layer = 2
 collision_mask = 4
+script = ExtResource("1_bw6ye")
+health_component = NodePath("HealthComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_772j6")
