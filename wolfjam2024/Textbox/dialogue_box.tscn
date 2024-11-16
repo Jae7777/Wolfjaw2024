@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dofcrcwg6cvlu"]
+[gd_scene load_steps=11 format=3 uid="uid://dofcrcwg6cvlu"]
 
-[ext_resource type="Script" path="res://Textbox/dialogue_box.gd" id="1_rimaa"]
-[ext_resource type="FontFile" uid="uid://ql1iy88pjl87" path="res://Textbox/Ldfcomicsans-jj7l.ttf" id="1_wrlgw"]
+[ext_resource type="Script" path="res://textbox/dialogue_box.gd" id="1_rimaa"]
+[ext_resource type="FontFile" uid="uid://ql1iy88pjl87" path="res://textbox/Ldfcomicsans-jj7l.ttf" id="1_wrlgw"]
 [ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_66kjc"]
+[ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_tii1h"]
+[ext_resource type="Shader" path="res://textbox/speaker2_active.gdshader" id="5_tdbis"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iussw"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,6 +21,14 @@ bg_color = Color(0.303233, 0.303233, 0.303233, 1)
 base_font = ExtResource("1_wrlgw")
 spacing_glyph = 2
 spacing_space = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8tsnd"]
+shader = ExtResource("3_tii1h")
+shader_parameter/off = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hoapc"]
+shader = ExtResource("5_tdbis")
+shader_parameter/off = true
 
 [node name="DialogueBox" type="CanvasLayer"]
 script = ExtResource("1_rimaa")
@@ -121,6 +131,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="Speaker1" type="Sprite2D" parent="SpeakerContainer/Container"]
+material = SubResource("ShaderMaterial_8tsnd")
 scale = Vector2(2, 2)
 texture = ExtResource("2_66kjc")
 
@@ -129,7 +140,10 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="Speaker2" type="Sprite2D" parent="SpeakerContainer/Container2"]
+material = SubResource("ShaderMaterial_hoapc")
 scale = Vector2(2, 2)
 texture = ExtResource("2_66kjc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="timeout" from="DialogueBoxContainer/LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
