@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cngcomnkext5m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_32qsj"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_3wwcq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64lo2"]
+size = Vector2(92, 6)
+
+[node name="Level" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(32, 1)
+scale = Vector2(92.25, 6.5)
+mesh = SubResource("BoxMesh_32qsj")
+texture = SubResource("MeshTexture_3wwcq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 1)
+shape = SubResource("RectangleShape2D_64lo2")
