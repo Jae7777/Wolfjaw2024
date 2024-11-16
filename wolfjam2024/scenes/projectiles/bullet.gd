@@ -24,6 +24,4 @@ func _physics_process(delta: float) -> void:
     
     # Optional: Delete bullet when it goes too far off screen
     var viewport_rect = get_viewport_rect()
-    if !viewport_rect.has_point(position):
-        
       

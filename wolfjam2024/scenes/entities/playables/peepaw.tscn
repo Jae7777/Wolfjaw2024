@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqdfjntq0rnt5"]
+[gd_scene load_steps=10 format=3 uid="uid://chdktp2ln21pv"]
 
 [ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_drp5m"]
 [ext_resource type="Script" path="res://scenes/entities/playables/fists.gd" id="2_wrkgf"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="4_enfr0"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
-[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
 blend_mode = 1
