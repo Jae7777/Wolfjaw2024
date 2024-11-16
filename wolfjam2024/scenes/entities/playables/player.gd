@@ -6,5 +6,10 @@ extends CharacterBody2D
 @export var defend_speed := 2.0 * 60
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	handle_gravity(delta)
 	move_and_slide()
+
+func handle_gravity(delta) -> void:
+	if not is_on_floor():
+		velocity.y += ProjectSettings.get_setting("physics/2d/default_gravity") * delta

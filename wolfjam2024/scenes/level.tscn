@@ -34,7 +34,8 @@ position = Vector2(7, -179)
 [node name="Player2" parent="." groups=["Player1"] instance=ExtResource("2_hm2kl")]
 position = Vector2(-149, -179)
 
-[node name="PlayerControl" type="Node" parent="." node_paths=PackedStringArray("target1", "target2")]
+[node name="PlayerControl" type="Node" parent="." node_paths=PackedStringArray("target1", "target2", "camera")]
 script = ExtResource("3_r8k6y")
 target1 = NodePath("../Player1")
 target2 = NodePath("../Player2")
+camera = NodePath("../Camera2D")
