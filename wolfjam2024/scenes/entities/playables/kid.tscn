@@ -40,4 +40,6 @@ target = NodePath("..")
 [node name="GravityComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_b4oee")]
 target = NodePath("..")
 
-[node name="PlayableAttackComponent" parent="." instance=ExtResource("6_1r636")]
+[node name="PlayableAttackComponent" parent="." node_paths=PackedStringArray("target", "weapon") instance=ExtResource("6_1r636")]
+target = NodePath("..")
+weapon = NodePath("../Rifle")

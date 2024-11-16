@@ -34,7 +34,7 @@ func handle_switch() -> void:
 	
 func handle_attack() -> void:
 	if Input.is_action_just_pressed("attack"):
-		curr_target.attack()
+		curr_target.get_node("PlayableAttackComponent").attack()
 
 func handle_move() -> void:
   if Input.is_action_pressed('move_left'):
