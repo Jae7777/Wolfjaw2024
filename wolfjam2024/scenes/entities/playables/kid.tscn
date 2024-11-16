@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://co6op0dk5axm1" path="res://scenes/weapons/rifle.tscn" id="2_sgf03"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="3_gpq61"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="4_b4oee"]
-[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
+[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="7_8hd1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axra0"]
