@@ -1,10 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dqdfjntq0rnt5"]
+[gd_scene load_steps=23 format=3 uid="uid://dqdfjntq0rnt5"]
 
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="1_jwfy5"]
 [ext_resource type="Texture2D" uid="uid://cifylxywulch3" path="res://assets/character/pop_walk/1.png" id="1_vb0of"]
 [ext_resource type="Texture2D" uid="uid://dvjwwcs1xru78" path="res://assets/character/pop_walk/2.png" id="2_61nyk"]
 [ext_resource type="Texture2D" uid="uid://g14tld6o6qpg" path="res://assets/character/pop_idle/1.png" id="2_adrhq"]
-[ext_resource type="PackedScene" uid="uid://cgkguxs525cxq" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
 [ext_resource type="Texture2D" uid="uid://bh0bffxspd0xu" path="res://assets/character/pop_idle/2.png" id="3_hwjrq"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
 [ext_resource type="Texture2D" uid="uid://7edokrsrpah7" path="res://assets/character/pop_walk/3.png" id="3_x2uj1"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cksf7ysjtol8l" path="res://assets/character/pop_walk/6.png" id="6_nju8r"]
 [ext_resource type="Texture2D" uid="uid://c83fjwrsac75v" path="res://assets/character/pop_walk/7.png" id="7_0d0wx"]
 [ext_resource type="Texture2D" uid="uid://cuoyer8un08nm" path="res://assets/character/pop_walk/8.png" id="8_yityc"]
+[ext_resource type="AudioStream" uid="uid://xwpw7x4xx04p" path="res://assets/Sounds/walking.mp3" id="19_6vho6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
 blend_mode = 1
@@ -104,12 +105,11 @@ one_shot = true
 [node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer", "animated_sprite") instance=ExtResource("3_ud7by")]
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
-base_speed = 350
-run_speed = 600.0
-defend_speed = 120.0
-jump_velocity = -600
-roll_speed = 600
 animated_sprite = NodePath("../Sprite2D")
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="PlayableMoveComponent"]
+stream = ExtResource("19_6vho6")
+volume_db = 3.0
 
 [node name="PlayableFollowComponent" parent="." node_paths=PackedStringArray("movement_component", "target") instance=ExtResource("4_enfr0")]
 movement_component = NodePath("../PlayableMoveComponent")
@@ -123,10 +123,10 @@ target = NodePath("..")
 weapon = NodePath("../Fists")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -55.0
-offset_top = -122.0
-offset_right = 59.0
-offset_bottom = -95.0
+offset_left = -62.0
+offset_top = -190.0
+offset_right = 52.0
+offset_bottom = -163.0
 max_value = 3.0
 rounded = true
 show_percentage = false

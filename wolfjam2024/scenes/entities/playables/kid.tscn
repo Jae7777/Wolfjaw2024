@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp4uowlnbh4dd"]
+[gd_scene load_steps=10 format=3 uid="uid://cp4uowlnbh4dd"]
 
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="2_f31ti"]
 [ext_resource type="PackedScene" uid="uid://co6op0dk5axm1" path="res://scenes/weapons/rifle.tscn" id="2_sgf03"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="3_gpq61"]
+[ext_resource type="AudioStream" uid="uid://xwpw7x4xx04p" path="res://assets/Sounds/walking.mp3" id="3_vqy5l"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="4_b4oee"]
 [ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="7_8hd1u"]
@@ -56,11 +57,12 @@ one_shot = true
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
 base_speed = 600
-run_speed = 600.0
-defend_speed = 120.0
-jump_velocity = -600
 roll_speed = 0
 animated_sprite = NodePath("../Sprite2D")
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="PlayableMoveComponent"]
+stream = ExtResource("3_vqy5l")
+volume_db = 3.0
 
 [node name="PlayableFollowComponent" parent="." node_paths=PackedStringArray("movement_component", "target") instance=ExtResource("3_gpq61")]
 movement_component = NodePath("../PlayableMoveComponent")
