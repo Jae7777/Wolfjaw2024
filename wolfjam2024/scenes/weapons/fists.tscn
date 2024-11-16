@@ -10,7 +10,6 @@ scale = Vector2(3.2, 5.92)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_5kumf")
-damage = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

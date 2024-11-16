@@ -42,9 +42,9 @@ one_shot = true
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
 base_speed = 600
-run_speed = 600.0
-defend_speed = 120.0
-jump_velocity = -600
+run_speed = null
+defend_speed = null
+jump_velocity = null
 roll_speed = 0
 
 [node name="PlayableFollowComponent" parent="." node_paths=PackedStringArray("movement_component", "target") instance=ExtResource("3_gpq61")]

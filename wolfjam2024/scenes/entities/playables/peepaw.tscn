@@ -1,116 +1,42 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqdfjntq0rnt5"]
+[gd_scene load_steps=9 format=3 uid="uid://dqdfjntq0rnt5"]
 
-[ext_resource type="Texture2D" uid="uid://g14tld6o6qpg" path="res://assets/character/pop_idle/1.png" id="1_y36ff"]
-[ext_resource type="Texture2D" uid="uid://bh0bffxspd0xu" path="res://assets/character/pop_idle/2.png" id="2_4w1on"]
-[ext_resource type="Script" path="res://scenes/entities/playables/fists.gd" id="2_wrkgf"]
-[ext_resource type="Texture2D" uid="uid://cifylxywulch3" path="res://assets/character/pop_walk/1.png" id="2_y515j"]
-[ext_resource type="Texture2D" uid="uid://dvjwwcs1xru78" path="res://assets/character/pop_walk/2.png" id="3_qyvhq"]
+[ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_drp5m"]
+[ext_resource type="PackedScene" uid="uid://cgkguxs525cxq" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
-[ext_resource type="Texture2D" uid="uid://b4vuiwj5j3g0" path="res://assets/character/pop_idle/3.png" id="3_vq6wv"]
-[ext_resource type="Texture2D" uid="uid://7edokrsrpah7" path="res://assets/character/pop_walk/3.png" id="4_0nrmi"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="4_enfr0"]
-[ext_resource type="Texture2D" uid="uid://bvea2od54jyin" path="res://assets/character/pop_idle/4.png" id="4_rgysi"]
-[ext_resource type="Texture2D" uid="uid://q0vc17744qf6" path="res://assets/character/pop_walk/4.png" id="5_ng6ym"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
-[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
-[ext_resource type="Texture2D" uid="uid://tioufd3laalf" path="res://assets/character/pop_walk/5.png" id="6_phpre"]
-[ext_resource type="Texture2D" uid="uid://cksf7ysjtol8l" path="res://assets/character/pop_walk/6.png" id="7_mg04x"]
-[ext_resource type="Texture2D" uid="uid://c83fjwrsac75v" path="res://assets/character/pop_walk/7.png" id="8_yv2wd"]
-[ext_resource type="Texture2D" uid="uid://cuoyer8un08nm" path="res://assets/character/pop_walk/8.png" id="9_vags7"]
+[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
 blend_mode = 1
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_x560g"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_y36ff")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_4w1on")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_vq6wv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_rgysi")
-}],
-"loop": false,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_y515j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_qyvhq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_0nrmi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_ng6ym")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_phpre")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_mg04x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_yv2wd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_vags7")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p6p4"]
-radius = 69.9594
-height = 269.426
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7lcu"]
+radius = 62.9635
+height = 125.927
 
 [node name="Peepaw" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_ltkao")
-scale = Vector2(0.3, 0.302)
-sprite_frames = SubResource("SpriteFrames_x560g")
-animation = &"idle"
+scale = Vector2(0.99366, 1)
+texture = ExtResource("2_drp5m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-28, -3)
 scale = Vector2(1.00058, 1.00213)
 shape = SubResource("CapsuleShape2D_2p6p4")
 
-[node name="Fists" type="Area2D" parent="." instance=ExtResource("2_fmxsh")] 
-position = Vector2(90, 0)
-scale = Vector2(3.2, 5.92)
-script = ExtResource("2_wrkgf")
-damage = null
-
-[node name="Sprite2D" type="Sprite2D" parent="Fists"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fists"]
-position = Vector2(-4.6875, -1.18243)
-shape = SubResource("RectangleShape2D_a7lcu")
+[node name="Fists" parent="." instance=ExtResource("2_fmxsh")]
+damage = 2
 
 [node name="DodgeTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
 
-[node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer", "animated_sprite") instance=ExtResource("3_ud7by")]
+[node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer") instance=ExtResource("3_ud7by")]
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
-animated_sprite = NodePath("../AnimatedSprite2D")
 base_speed = null
 run_speed = null
 defend_speed = null
