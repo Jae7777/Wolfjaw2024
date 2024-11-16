@@ -20,6 +20,15 @@ texture = ExtResource("1_vqy7g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_55tr1")
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("target", "hurtbox") instance=ExtResource("2_8hhdt")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("target", "healthbar") instance=ExtResource("2_8hhdt")]
 target = NodePath("..")
-hurtbox = NodePath("../CollisionShape2D")
+health = 50
+healthbar = NodePath("../HealthBar")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -64.0
+offset_top = -111.0
+offset_right = 63.0
+offset_bottom = -84.0
+max_value = 50.0
+show_percentage = false

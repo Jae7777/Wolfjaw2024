@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://chdktp2ln21pv"]
+[gd_scene load_steps=11 format=3 uid="uid://chdktp2ln21pv"]
 
 [ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_drp5m"]
 [ext_resource type="Script" path="res://scenes/entities/playables/fists.gd" id="2_wrkgf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="4_enfr0"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
 [ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+[ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="7_3sucq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
 blend_mode = 1
@@ -55,5 +56,18 @@ target = NodePath("..")
 target = NodePath("..")
 
 [node name="PlayableAttackComponent" parent="." instance=ExtResource("5_xvpaw")]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -59.0
+offset_top = -119.0
+offset_right = 59.0
+offset_bottom = -92.0
+max_value = 3.0
+rounded = true
+show_percentage = false
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("target", "healthbar") instance=ExtResource("7_3sucq")]
+target = NodePath("..")
+healthbar = NodePath("../HealthBar")
 
 [connection signal="area_entered" from="Fists" to="Fists" method="_on_area_entered"]
