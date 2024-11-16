@@ -25,13 +25,13 @@ blend_mode = 1
 [sub_resource type="SpriteFrames" id="SpriteFrames_qu1up"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 4.0,
 "texture": ExtResource("2_adrhq")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_hwjrq")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": ExtResource("4_limc5")
 }, {
 "duration": 1.0,
@@ -85,7 +85,8 @@ healthbar = NodePath("../HealthBar")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_ltkao")
-scale = Vector2(0.3, 0.302)
+position = Vector2(0, -20)
+scale = Vector2(0.4, 0.403)
 sprite_frames = SubResource("SpriteFrames_qu1up")
 animation = &"walk"
 
