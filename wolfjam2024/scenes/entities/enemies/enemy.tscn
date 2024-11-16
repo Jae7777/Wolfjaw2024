@@ -20,5 +20,6 @@ texture = ExtResource("1_vqy7g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_55tr1")
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_8hhdt")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("target", "hurtbox") instance=ExtResource("2_8hhdt")]
 target = NodePath("..")
+hurtbox = NodePath("../CollisionShape2D")

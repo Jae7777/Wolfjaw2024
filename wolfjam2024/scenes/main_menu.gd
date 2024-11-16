@@ -5,23 +5,23 @@ extends MarginContainer
 @onready var quit_button = $HBoxContainer/VBoxContainer/MenuOptions/Quit
 
 func _ready():
-	pass
+  pass
 
 func _on_start_pressed() -> void:
-	_set_buttons_visibility(false)
-	TransitionScreen.transition()
-	await TransitionScreen.on_transition_finished
-	get_tree().change_scene_to_file("res://scenes/level.tscn")
+  _set_buttons_visibility(false)
+  TransitionScreen.transition()
+  await TransitionScreen.on_transition_finished
+  get_tree().change_scene_to_file("res://scenes/level.tscn")
 
 func _on_options_pressed() -> void:
-	_set_buttons_visibility(false)
-	get_tree().change_scene_to_file("res://scenes/menus/options.tscn")
+  _set_buttons_visibility(false)
+  get_tree().change_scene_to_file("res://scenes/menus/options.tscn")
 
 func _on_quit_pressed() -> void:
-	_set_buttons_visibility(false)
-	get_tree().quit()
+  _set_buttons_visibility(false)
+  get_tree().quit()
 
 func _set_buttons_visibility(v: bool):
-	start_button.visible = v
-	options_button.visible = v
-	quit_button.visible = v
+  start_button.visible = v
+  options_button.visible = v
+  quit_button.visible = v

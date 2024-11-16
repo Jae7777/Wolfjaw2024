@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cngcomnkext5m"]
 
 [ext_resource type="PackedScene" uid="uid://cqlwb0dw7bkvc" path="res://scenes/camera.tscn" id="1_uu85q"]
-[ext_resource type="PackedScene" path="res://scenes/entities/playables/peepaw.tscn" id="2_cwblp"]
-[ext_resource type="PackedScene" path="res://scenes/entities/playables/kid.tscn" id="3_8va15"]
+[ext_resource type="PackedScene" uid="uid://chdktp2ln21pv" path="res://scenes/entities/playables/peepaw.tscn" id="2_cwblp"]
+[ext_resource type="PackedScene" uid="uid://mto6wmxs32mi" path="res://scenes/entities/playables/kid.tscn" id="3_8va15"]
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="3_r8k6y"]
 [ext_resource type="PackedScene" uid="uid://bnuv5awh0reem" path="res://scenes/entities/enemies/enemy.tscn" id="5_27dix"]
 
