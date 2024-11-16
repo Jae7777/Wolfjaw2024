@@ -1,29 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://co6op0dk5axm1"]
+[gd_scene load_steps=11 format=3 uid="uid://co6op0dk5axm1"]
 
 [ext_resource type="Texture2D" uid="uid://tec0knii7luu" path="res://assets/weapons/Mosin Nagant-Scope.png" id="1_5r2tr"]
 [ext_resource type="Script" path="res://scenes/weapons/rifle.gd" id="1_6mh5u"]
 [ext_resource type="PackedScene" uid="uid://bejeg2dm3alah" path="res://scenes/components/spawn_projectile_component.tscn" id="2_a27mx"]
 [ext_resource type="Texture2D" uid="uid://bihw6x2shwf47" path="res://assets/particle.png" id="2_xuxrc"]
 [ext_resource type="PackedScene" uid="uid://qlkdh1wego30" path="res://scenes/projectiles/bullet.tscn" id="3_5sltq"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_typda"]
-blend_mode = 1
-
-[sub_resource type="Gradient" id="Gradient_7m6cd"]
-offsets = PackedFloat32Array(0.131148, 0.213115, 0.803279)
-colors = PackedColorArray(0.945098, 1, 0, 0.054902, 0.945312, 1, 0, 1, 1, 0.0703125, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ijw0x"]
-gradient = SubResource("Gradient_7m6cd")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ymmiw"]
-particle_flag_disable_z = true
-spread = 97.584
-initial_velocity_max = 60.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.05
-scale_max = 0.05
-color_ramp = SubResource("GradientTexture1D_ijw0x")
+[ext_resource type="AudioStream" uid="uid://d38cgaugxlbde" path="res://assets/Sounds/gunshot.mp3" id="6_v5vaq"]
 
 [node name="Rifle" type="Node2D" node_paths=PackedStringArray("fire_timer")]
 script = ExtResource("1_6mh5u")
@@ -54,3 +36,8 @@ physics_interpolation_mode = 2
 [node name="FireTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(267.098, 122.754)
+rotation = -0.116627
+stream = ExtResource("6_v5vaq")
