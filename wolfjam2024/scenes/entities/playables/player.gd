@@ -8,21 +8,17 @@ extends CharacterBody2D
 var movement_input := Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-
+	handle_move(delta)
 
 	move_and_slide()
+	print("Player position: ", self.position)
 
 func handle_move(delta: float) -> void:
-	movement_input = Input.get_vector('move_left', 'move_right', 'move_forward', 'move_backward').rotated(-camera.global_rotation.y).normalized()
-	var velocity_2d = Vector2(self.velocity.x, self.velocity.z)
-	if movement_input.length() > 0.0:
-		var move_speed = _get_move_speed()
-		velocity_2d = movement_input * move_speed * delta
-		model.set_move_state("Running_B")
-		var target_angle = -movement_input.angle() + PI/2
-		model.rotation.y = rotate_toward(model.rotation.y, target_angle, 9.0 * delta)
+	if Input.is_action_pressed('move_left'):
+		movement_input.x = -1
+	elif Input.is_action_pressed('move_right'):
+		movement_input.x = 1
 	else:
-		velocity_2d = velocity_2d.move_toward(Vector2.ZERO, base_speed * delta * 4.0)
-		model.set_move_state("Idle")
-	self.velocity.x = velocity_2d.x
-	self.velocity.z = velocity_2d.y
+		movement_input.x = 0
+
+	self.velocity = movement_input * base_speed * delta
