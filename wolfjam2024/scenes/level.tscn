@@ -22,7 +22,7 @@ texture = ExtResource("1_mk3mo")
 shape = SubResource("RectangleShape2D_64lo2")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(0, -155)
+position = Vector2(0, -154)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_mk3mo")
@@ -32,3 +32,13 @@ scale = Vector2(6.30689, -6.2706)
 shape = SubResource("RectangleShape2D_g3ycr")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Player2" type="CharacterBody2D" parent="."]
+position = Vector2(-241, -154)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2"]
+texture = ExtResource("1_mk3mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+scale = Vector2(6.30689, -6.2706)
+shape = SubResource("RectangleShape2D_g3ycr")
