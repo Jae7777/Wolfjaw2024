@@ -12,33 +12,32 @@ func _ready() -> void:
   # Ensure initial z_index setup
   update_render_order()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
   if curr_target:
-    handle_move(delta)
+    handle_move()
     handle_switch()
 
 func handle_switch() -> void:
   if Input.is_action_just_pressed('character_switch'):
     if curr_target == target1:
       curr_target = target2
-      target1.velocity = Vector2.ZERO
+      target1.reset_velocity()
     else:
       curr_target = target1
-      target2.velocity = Vector2.ZERO
+      target2.reset_velocity()
     camera.follow(curr_target)
     update_render_order()
 
-func handle_move(delta: float) -> void:
+func handle_move() -> void:
   if Input.is_action_pressed('move_left'):
-    movement_input.x = -1
+    curr_target.move_left()
   elif Input.is_action_pressed('move_right'):
-    movement_input.x = 1
+    curr_target.move_right()
   else:
-    movement_input.x = 0
+    curr_target.reset_velocity()
 
-  curr_target.velocity.x = movement_input.x * curr_target.base_speed * delta
   if Input.is_action_just_pressed('jump') and curr_target.is_on_floor():
-    curr_target.velocity.y = -600
+    curr_target.jump()
 
 func update_render_order() -> void:
   # Ensure the current target is rendered above the other character
