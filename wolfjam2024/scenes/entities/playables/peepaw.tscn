@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqdfjntq0rnt5"]
+
+[ext_resource type="Script" path="res://scenes/entities/playables/peepaw.gd" id="1_t1rck"]
+[ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_drp5m"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
+blend_mode = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p6p4"]
+radius = 62.9637
+height = 125.927
+
+[node name="Peepaw" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_t1rck")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_ltkao")
+scale = Vector2(0.99366, 1)
+texture = ExtResource("2_drp5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.00058, 1.00213)
+shape = SubResource("CapsuleShape2D_2p6p4")
+
+[node name="RollTimer" type="Timer" parent="."]

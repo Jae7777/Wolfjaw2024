@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # movement
-@export var base_speed := 300
+@export var base_speed := 500
 @export var run_speed := 10.0 * 60
 @export var defend_speed := 2.0 * 60
 

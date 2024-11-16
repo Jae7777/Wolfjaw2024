@@ -43,6 +43,9 @@ func handle_move() -> void:
   if Input.is_action_just_pressed('jump') and curr_target.is_on_floor():
     curr_target.jump()
 
+  if Input.is_action_just_pressed('dodge'):
+    curr_target.dodge()
+
 func update_render_order() -> void:
   # Ensure the current target is rendered above the other character
   if curr_target == target1:

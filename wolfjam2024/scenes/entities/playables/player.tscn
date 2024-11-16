@@ -17,3 +17,6 @@ texture = ExtResource("1_u3441")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.30689, -6.2706)
 shape = SubResource("RectangleShape2D_g3ycr")
+
+[node name="RollTimer" type="Timer" parent="."]
+one_shot = true
