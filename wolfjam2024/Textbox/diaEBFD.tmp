@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://dofcrcwg6cvlu"]
+
+[ext_resource type="Script" path="res://Textbox/dialogue_box.gd" id="1_rimaa"]
+[ext_resource type="FontFile" uid="uid://ql1iy88pjl87" path="res://Textbox/Ldfcomicsans-jj7l.ttf" id="1_wrlgw"]
+[ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_66kjc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iussw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mruph"]
+bg_color = Color(0.303233, 0.303233, 0.303233, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_qjyvg"]
+base_font = ExtResource("1_wrlgw")
+spacing_glyph = 2
+spacing_space = 5
+
+[node name="DialogueBox" type="CanvasLayer"]
+script = ExtResource("1_rimaa")
+
+[node name="DialogueBoxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -294.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="DialogueBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iussw")
+
+[node name="TextContainer" type="MarginContainer" parent="DialogueBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="Panel" type="Panel" parent="DialogueBoxContainer/TextContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mruph")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueBoxContainer/TextContainer"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="DialogueBoxContainer/TextContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1707, 156)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_qjyvg")
+theme_override_font_sizes/font_size = 35
+text = "According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh, black and yellow! Let's shake it up a little. Barry! Breakfast is ready! Coming! Hang on a second. Hello? - Barry? - Adam? - Can you believe this is happening? "
+vertical_alignment = 2
+autowrap_mode = 3
+clip_text = true
+
+[node name="Continue" type="Label" parent="DialogueBoxContainer/TextContainer/HBoxContainer"]
+custom_minimum_size = Vector2(76, 36)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_qjyvg")
+theme_override_font_sizes/font_size = 40
+text = ". . . v"
+
+[node name="NameContainer" type="MarginContainer" parent="DialogueBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="DialogueBoxContainer/NameContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="DialogueBoxContainer/NameContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_qjyvg")
+theme_override_font_sizes/font_size = 35
+text = "Name:"
+
+[node name="SpeakerContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -535.0
+offset_right = 960.0
+offset_bottom = -278.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 130
+theme_override_constants/margin_right = 200
+
+[node name="Container" type="Container" parent="SpeakerContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Speaker1" type="Sprite2D" parent="SpeakerContainer/Container"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_66kjc")
+
+[node name="Container2" type="Container" parent="SpeakerContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Speaker2" type="Sprite2D" parent="SpeakerContainer/Container2"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_66kjc")
