@@ -24,15 +24,20 @@ func move_left() -> void:
   if dodge_timer.time_left == 0:
     target.velocity.x = -base_speed
     face_direction = -1
+    animated_sprite.play("walk")
+    animated_sprite.flip_h = true
 
 func move_right() -> void:
   if dodge_timer.time_left == 0:
     target.velocity.x = base_speed
     face_direction = 1
+    animated_sprite.play("walk")
+    animated_sprite.flip_h = false
 
 func reset_velocity() -> void:
   if dodge_timer.time_left == 0:
     target.velocity.x = 0
+    animated_sprite.play("idle")
 
 func roll() -> void:
   if dodge_timer.time_left == 0 and roll_speed != 0:

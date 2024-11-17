@@ -3,6 +3,7 @@ extends Node2D
 @export var fire_timer: Timer
 
 @onready var GunParticle = $Sprite2D/ProjectileSpawnPoint/GunParticle
+@onready var GunShot = $Shot
 
 func _ready():
   GunParticle.emitting = false
@@ -12,6 +13,7 @@ func _physics_process(_delta: float) -> void:
 
 func attack() -> void:
   if fire_timer.time_left == 0:
+    GunShot.play()
     fire_timer.start()
     GunParticle.emitting = true
     $SpawnProjectileComponent.spawn_projectile()

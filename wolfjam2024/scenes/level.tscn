@@ -1,55 +1,129 @@
-[gd_scene load_steps=9 format=3 uid="uid://cngcomnkext5m"]
+[gd_scene load_steps=17 format=3 uid="uid://cngcomnkext5m"]
 
 [ext_resource type="PackedScene" uid="uid://cqlwb0dw7bkvc" path="res://scenes/camera.tscn" id="1_uu85q"]
-[ext_resource type="Texture2D" uid="uid://b7rnogccrrrnq" path="res://assets/background/gray_background.jpg" id="2_1kyyp"]
 [ext_resource type="PackedScene" uid="uid://dqdfjntq0rnt5" path="res://scenes/entities/playables/peepaw.tscn" id="2_cwblp"]
+[ext_resource type="Texture2D" uid="uid://cyimwdpr5ysu1" path="res://assets/background/8.png" id="2_oj4gi"]
 [ext_resource type="PackedScene" uid="uid://cp4uowlnbh4dd" path="res://scenes/entities/playables/kid.tscn" id="3_8va15"]
-[ext_resource type="Texture2D" uid="uid://s7ri1gp7bgks" path="res://assets/background/brown.png" id="3_cicdp"]
+[ext_resource type="Texture2D" uid="uid://cm22ix408vxs1" path="res://assets/background/0.png" id="3_a17ee"]
+[ext_resource type="Texture2D" uid="uid://kx52spdu37p2" path="res://assets/background/7.png" id="3_lssv3"]
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="3_r8k6y"]
+[ext_resource type="Texture2D" uid="uid://d4cjbm1w2wryj" path="res://assets/background/6.png" id="4_42jvv"]
 [ext_resource type="PackedScene" uid="uid://bnuv5awh0reem" path="res://scenes/entities/enemies/enemy.tscn" id="5_27dix"]
+[ext_resource type="Texture2D" uid="uid://cx26jfywch1nu" path="res://assets/background/5.png" id="5_h28rx"]
+[ext_resource type="Texture2D" uid="uid://o2xasxrdur7l" path="res://assets/background/4.png" id="6_1do40"]
+[ext_resource type="Texture2D" uid="uid://dq4lpmbf75gtw" path="res://assets/background/3.png" id="7_mlaci"]
+[ext_resource type="Texture2D" uid="uid://bdq8e8plgi06w" path="res://assets/background/2.png" id="8_77myc"]
+[ext_resource type="Texture2D" uid="uid://bnhx0p4i1mibi" path="res://assets/background/1.png" id="11_oyjgk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_64lo2"]
-size = Vector2(1199.23, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c12xx"]
+size = Vector2(3834, 270)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amk7h"]
+size = Vector2(20, 755.682)
 
 [node name="Level" type="Node2D"]
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_uu85q")]
 position = Vector2(0, -385)
-target = NodePath("../Peepaw")
+target = NodePath("../Player/Peepaw")
 
-[node name="World" type="Node2D" parent="."]
-position = Vector2(2, 0)
-scale = Vector2(30, 30)
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(0, 804)
 
-[node name="Sprite2D" type="Sprite2D" parent="World"]
-position = Vector2(340.45, -121.617)
-scale = Vector2(8.10913, 1.39479)
-texture = ExtResource("2_1kyyp")
+[node name="Peepaw" parent="Player" instance=ExtResource("2_cwblp")]
+position = Vector2(26, -285)
 
-[node name="Platform" type="StaticBody2D" parent="World"]
+[node name="Kid" parent="Player" instance=ExtResource("3_8va15")]
+position = Vector2(-301, -167)
+scale = Vector2(2, 1.934)
+
+[node name="Parallax2D" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="8" type="Sprite2D" parent="Parallax2D/ParallaxLayer9"]
+texture = ExtResource("2_oj4gi")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="7" type="Sprite2D" parent="Parallax2D/ParallaxLayer8"]
+texture = ExtResource("3_lssv3")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="6" type="Sprite2D" parent="Parallax2D/ParallaxLayer7"]
+texture = ExtResource("4_42jvv")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="5" type="Sprite2D" parent="Parallax2D/ParallaxLayer6"]
+texture = ExtResource("5_h28rx")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="4" type="Sprite2D" parent="Parallax2D/ParallaxLayer5"]
+texture = ExtResource("6_1do40")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="3" type="Sprite2D" parent="Parallax2D/ParallaxLayer4"]
+texture = ExtResource("7_mlaci")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="2" type="Sprite2D" parent="Parallax2D/ParallaxLayer3"]
+texture = ExtResource("8_77myc")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="1" type="Sprite2D" parent="Parallax2D/ParallaxLayer2"]
+texture = ExtResource("11_oyjgk")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D"]
+motion_mirroring = Vector2(3840, 0)
+
+[node name="0" type="Sprite2D" parent="Parallax2D/ParallaxLayer"]
+texture = ExtResource("3_a17ee")
+
+[node name="World" type="StaticBody2D" parent="."]
+position = Vector2(0, 941)
+scale = Vector2(17.2996, 1)
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="World/Platform"]
-position = Vector2(0, -0.0333332)
-scale = Vector2(1, 0.00505556)
-texture = ExtResource("3_cicdp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World"]
+shape = SubResource("RectangleShape2D_c12xx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platform"]
-position = Vector2(-0.316661, 0)
-shape = SubResource("RectangleShape2D_64lo2")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World"]
+position = Vector2(1906.52, -3112.5)
+scale = Vector2(1, 7.92)
+shape = SubResource("RectangleShape2D_amk7h")
 
-[node name="Peepaw" parent="." instance=ExtResource("2_cwblp")]
-position = Vector2(26, -167)
-
-[node name="Kid" parent="." instance=ExtResource("3_8va15")]
-position = Vector2(-169, -167)
-scale = Vector2(1.00577, 0.972535)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="World"]
+position = Vector2(-1906.52, -3112.5)
+scale = Vector2(1, 7.92)
+shape = SubResource("RectangleShape2D_amk7h")
 
 [node name="PlayerControl" type="Node" parent="." node_paths=PackedStringArray("target1", "target2", "camera")]
 script = ExtResource("3_r8k6y")
-target1 = NodePath("../Peepaw")
-target2 = NodePath("../Kid")
+target1 = NodePath("../Player/Peepaw")
+target2 = NodePath("../Player/Kid")
 camera = NodePath("../Camera2D")
 
 [node name="Enemy" parent="." instance=ExtResource("5_27dix")]
-position = Vector2(432, -189)
+position = Vector2(432, 724)

@@ -1,19 +1,80 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqdfjntq0rnt5"]
+[gd_scene load_steps=22 format=3 uid="uid://dqdfjntq0rnt5"]
 
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="1_jwfy5"]
-[ext_resource type="Texture2D" uid="uid://clgje13jtolro" path="res://icon.svg" id="2_drp5m"]
-[ext_resource type="PackedScene" uid="uid://cgkguxs525cxq" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
+[ext_resource type="Texture2D" uid="uid://cifylxywulch3" path="res://assets/character/pop_walk/1.png" id="1_vb0of"]
+[ext_resource type="Texture2D" uid="uid://dvjwwcs1xru78" path="res://assets/character/pop_walk/2.png" id="2_61nyk"]
+[ext_resource type="Texture2D" uid="uid://g14tld6o6qpg" path="res://assets/character/pop_idle/1.png" id="2_adrhq"]
+[ext_resource type="PackedScene" uid="uid://cgkguxs525cxq" uid="uid://cgkguxs525cxq" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
+[ext_resource type="Texture2D" uid="uid://bh0bffxspd0xu" path="res://assets/character/pop_idle/2.png" id="3_hwjrq"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
+[ext_resource type="Texture2D" uid="uid://7edokrsrpah7" path="res://assets/character/pop_walk/3.png" id="3_x2uj1"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="4_enfr0"]
+[ext_resource type="Texture2D" uid="uid://q0vc17744qf6" path="res://assets/character/pop_walk/4.png" id="4_j6k15"]
+[ext_resource type="Texture2D" uid="uid://b4vuiwj5j3g0" path="res://assets/character/pop_idle/3.png" id="4_limc5"]
+[ext_resource type="Texture2D" uid="uid://tioufd3laalf" path="res://assets/character/pop_walk/5.png" id="5_ek0pi"]
+[ext_resource type="Texture2D" uid="uid://bvea2od54jyin" path="res://assets/character/pop_idle/4.png" id="5_mnb5e"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
+[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+[ext_resource type="Texture2D" uid="uid://cksf7ysjtol8l" path="res://assets/character/pop_walk/6.png" id="6_nju8r"]
+[ext_resource type="Texture2D" uid="uid://c83fjwrsac75v" path="res://assets/character/pop_walk/7.png" id="7_0d0wx"]
+[ext_resource type="Texture2D" uid="uid://cuoyer8un08nm" path="res://assets/character/pop_walk/8.png" id="8_yityc"]
 [ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
 blend_mode = 1
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_qu1up"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_adrhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hwjrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_limc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mnb5e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vb0of")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_61nyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x2uj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j6k15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ek0pi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nju8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0d0wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yityc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p6p4"]
-radius = 62.9635
-height = 125.927
+radius = 77.9548
+height = 293.375
 
 [node name="Peepaw" type="CharacterBody2D"]
 collision_layer = 4
@@ -23,24 +84,33 @@ collision_mask = 3
 target = NodePath("..")
 healthbar = NodePath("../HealthBar")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_ltkao")
-scale = Vector2(0.99366, 1)
-texture = ExtResource("2_drp5m")
+scale = Vector2(0.3, 0.302)
+sprite_frames = SubResource("SpriteFrames_qu1up")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17, -7)
 scale = Vector2(1.00058, 1.00213)
 shape = SubResource("CapsuleShape2D_2p6p4")
 
 [node name="Fists" parent="." instance=ExtResource("2_fmxsh")]
+position = Vector2(93, -17)
 
 [node name="DodgeTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
 
-[node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer") instance=ExtResource("3_ud7by")]
+[node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer", "animated_sprite") instance=ExtResource("3_ud7by")]
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
+base_speed = 350
+run_speed = 600.0
+defend_speed = 120.0
+jump_velocity = -600
+roll_speed = 600
+animated_sprite = NodePath("../Sprite2D")
 
 [node name="PlayableFollowComponent" parent="." node_paths=PackedStringArray("movement_component", "target") instance=ExtResource("4_enfr0")]
 movement_component = NodePath("../PlayableMoveComponent")
