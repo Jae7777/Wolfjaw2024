@@ -26,7 +26,7 @@ shader_parameter/off = true
 shader = ExtResource("5_tdbis")
 shader_parameter/off = true
 
-[node name="DialogueBox2" type="CanvasLayer"]
+[node name="DialogueBox" type="CanvasLayer"]
 script = ExtResource("1_rimaa")
 
 [node name="DialogueBoxContainer" type="MarginContainer" parent="."]
@@ -65,7 +65,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mruph")
 layout_mode = 2
 
 [node name="Text" type="Label" parent="DialogueBoxContainer/TextContainer/HBoxContainer"]
-custom_minimum_size = Vector2(1707, 0)
+custom_minimum_size = Vector2(1600, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
