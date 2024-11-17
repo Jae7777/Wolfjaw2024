@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cp4uowlnbh4dd"]
+[gd_scene load_steps=24 format=3 uid="uid://cp4uowlnbh4dd"]
 
 [ext_resource type="Texture2D" uid="uid://bewnv5mw2xjbq" path="res://assets/character/kid.png" id="1_2aofb"]
 [ext_resource type="Texture2D" uid="uid://chmnyt0wyjo4t" path="res://assets/character/kid_idle/2.png" id="1_mqmr3"]
@@ -9,11 +9,16 @@
 [ext_resource type="AudioStream" uid="uid://xwpw7x4xx04p" path="res://assets/Sounds/walking.mp3" id="3_vqy5l"]
 [ext_resource type="Texture2D" uid="uid://bnv5m4ixol0fb" path="res://assets/character/kid_run/1.png" id="4_7jy7p"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="4_b4oee"]
+[ext_resource type="Texture2D" uid="uid://ci72mib80v1vq" path="res://assets/character/kid_attack/1.png" id="4_bpdg6"]
 [ext_resource type="Texture2D" uid="uid://dc1mdmmgdingr" path="res://assets/character/kid_run/2.png" id="5_18isd"]
+[ext_resource type="Texture2D" uid="uid://cs2p6yvu4i3uq" path="res://assets/character/kid_attack/2.png" id="5_l62sj"]
 [ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
 [ext_resource type="Texture2D" uid="uid://d4pddpvjtfpu" path="res://assets/character/kid_run/3.png" id="6_iuv0u"]
+[ext_resource type="Texture2D" uid="uid://df3j75f6rlb8k" path="res://assets/character/kid_attack/3.png" id="6_wp8ew"]
+[ext_resource type="Texture2D" uid="uid://ctek83un5d62t" path="res://assets/character/kid_attack/4.png" id="7_0lnpd"]
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="7_8hd1u"]
 [ext_resource type="Texture2D" uid="uid://7idg7gy56ci0" path="res://assets/character/kid_run/4.png" id="7_xb2t4"]
+[ext_resource type="Texture2D" uid="uid://dobunukwc5n7c" path="res://assets/character/kid_attack/5.png" id="8_g50sk"]
 [ext_resource type="Texture2D" uid="uid://b0yyp8834qrkr" path="res://assets/character/kid_run/5.png" id="8_q2bxp"]
 [ext_resource type="Texture2D" uid="uid://khgbnv4iv1dh" path="res://assets/character/kid_run/6.png" id="9_b5nba"]
 
@@ -33,10 +38,25 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bpdg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l62sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wp8ew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0lnpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g50sk")
+}],
 "loop": true,
 "name": &"melee",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -106,9 +126,8 @@ show_percentage = false
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(-0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_82786")
-animation = &"run"
-frame = 3
-frame_progress = 0.943818
+animation = &"melee"
+frame_progress = 0.215632
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

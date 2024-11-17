@@ -13,6 +13,7 @@ func _physics_process(_delta: float) -> void:
 
 func attack() -> void:
   if fire_timer.time_left == 0:
+    await get_tree().create_timer(0.2).timeout
     GunShot.play()
     fire_timer.start()
     GunParticle.emitting = true
