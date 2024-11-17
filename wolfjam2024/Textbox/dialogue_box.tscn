@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dofcrcwg6cvlu"]
+[gd_scene load_steps=12 format=3 uid="uid://dofcrcwg6cvlu"]
 
 [ext_resource type="Script" path="res://textbox/dialogue_box.gd" id="1_rimaa"]
+[ext_resource type="Texture2D" uid="uid://c01nln3np5ppi" path="res://assets/MainMenu.jpg" id="2_8fwvs"]
 [ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="2_xau0w"]
 [ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_tii1h"]
 [ext_resource type="Texture2D" uid="uid://17o8hwv2iqi" path="res://assets/Portraits/Talos.png" id="4_rn8cs"]
@@ -28,6 +29,11 @@ shader_parameter/off = true
 
 [node name="DialogueBox" type="CanvasLayer"]
 script = ExtResource("1_rimaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(959, 413)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_8fwvs")
 
 [node name="DialogueBoxContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
@@ -141,7 +147,5 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_6wgvv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="timeout" from="DialogueBoxContainer/LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
