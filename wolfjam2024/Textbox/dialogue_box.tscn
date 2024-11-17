@@ -26,7 +26,7 @@ shader_parameter/off = true
 shader = ExtResource("5_tdbis")
 shader_parameter/off = true
 
-[node name="DialogueBox" type="CanvasLayer"]
+[node name="DialogueBox2" type="CanvasLayer"]
 script = ExtResource("1_rimaa")
 
 [node name="DialogueBoxContainer" type="MarginContainer" parent="."]
