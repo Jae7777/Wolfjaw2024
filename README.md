@@ -11,3 +11,6 @@ The game will take you to a side-scrolling section after the opening scene, whic
 
 ## 3. Goal(s)
 We wanted to create a gameplay experience that allows you to switch dynamically between the two characters in order to problem solve combat encounters given their wildly different combat styles. Obviously... that did not happen. But we were able to get a dialogue system out that helps to paint the narrative that we were aiming for... somewhat.
+
+## 4. Music
+There are 4 .ogg audio files in the Assets folder under Sounds. Only two of the songs were implemented in time but all 4 are available for listening. Please do! We're very proud of our composer.
