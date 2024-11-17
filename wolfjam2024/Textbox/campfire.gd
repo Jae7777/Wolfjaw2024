@@ -30,6 +30,8 @@ var sfx
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    AudioManager3.stop()
+    AudioManager2.play()
     hide_textbox()
     read_file(dialogue_file_path)
     

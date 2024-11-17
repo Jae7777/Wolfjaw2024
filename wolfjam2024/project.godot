@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 TransitionScreen="*res://scenes/TransitionScreen.tscn"
+AudioManager="*res://scenes/audio_manager.tscn"
+AudioManager2="*res://scenes/audio_manager2.tscn"
+AudioManager3="*res://scenes/AudioManager3.tscn"
 
 [display]
 

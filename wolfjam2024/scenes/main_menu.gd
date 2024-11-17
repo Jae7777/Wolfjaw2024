@@ -8,6 +8,7 @@ func _ready():
   pass
 
 func _on_start_pressed() -> void:
+  AudioManager.play()
   _set_buttons_visibility(false)
   TransitionScreen.transition()
   await TransitionScreen.on_transition_finished

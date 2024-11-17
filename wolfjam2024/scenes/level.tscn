@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cngcomnkext5m"]
+[gd_scene load_steps=20 format=3 uid="uid://cngcomnkext5m"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_n28mq"]
 [ext_resource type="PackedScene" uid="uid://cqlwb0dw7bkvc" path="res://scenes/camera.tscn" id="1_uu85q"]
+[ext_resource type="PackedScene" uid="uid://ggb350jstt7i" path="res://scenes/audio_manager.tscn" id="2_7iuoq"]
 [ext_resource type="PackedScene" uid="uid://dqdfjntq0rnt5" path="res://scenes/entities/playables/peepaw.tscn" id="2_cwblp"]
 [ext_resource type="Texture2D" uid="uid://hg6l4ey3fnwj" path="res://assets/background/8.png" id="2_oj4gi"]
+[ext_resource type="PackedScene" uid="uid://g5acn73eydre" path="res://scenes/AudioManager3.tscn" id="2_pqh2h"]
 [ext_resource type="PackedScene" uid="uid://cp4uowlnbh4dd" path="res://scenes/entities/playables/kid.tscn" id="3_8va15"]
 [ext_resource type="Texture2D" uid="uid://dk1oit3rbc2r8" path="res://assets/background/7.png" id="3_lssv3"]
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="3_r8k6y"]
@@ -25,6 +27,10 @@ size = Vector2(20, 755.682)
 [node name="Level" type="Node2D"]
 position = Vector2(9, 0)
 script = ExtResource("1_n28mq")
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("2_pqh2h")]
+
+[node name="AudioManager" parent="." instance=ExtResource("2_7iuoq")]
 
 [node name="CameraAnchor" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_uu85q")]
 position = Vector2(-9, 107)

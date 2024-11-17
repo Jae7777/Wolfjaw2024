@@ -1,5 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfpydw8am3vv8"]
+[gd_scene load_steps=15 format=3 uid="uid://bfpydw8am3vv8"]
 
+[ext_resource type="PackedScene" uid="uid://g5acn73eydre" path="res://scenes/AudioManager3.tscn" id="1_a6lg8"]
+[ext_resource type="PackedScene" uid="uid://sw35qttxj2gv" path="res://scenes/audio_manager2.tscn" id="1_lw6sq"]
 [ext_resource type="Texture2D" uid="uid://djvmh5pspo34r" path="res://assets/campfire.png" id="2_tngvo"]
 [ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="3_bkrw7"]
 [ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="4_wc8v8"]
@@ -41,6 +43,7 @@ var sfx
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    AudioManager2.play()
     hide_textbox()
     read_file(dialogue_file_path)
     
@@ -179,6 +182,8 @@ shader_parameter/off = true
 [node name="Campfire" type="CanvasLayer"]
 script = SubResource("GDScript_sr3wl")
 
+[node name="AudioStreamPlayer2D2" parent="." instance=ExtResource("1_a6lg8")]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_tngvo")
@@ -297,5 +302,7 @@ texture = ExtResource("7_jlo68")
 
 [node name="AudioStream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_tbqt1")
+
+[node name="AudioStreamPlayer2D3" parent="." instance=ExtResource("1_lw6sq")]
 
 [connection signal="timeout" from="DialogueBoxContainer/LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

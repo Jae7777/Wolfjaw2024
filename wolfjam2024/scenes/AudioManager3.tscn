@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g5acn73eydre"]
+
+[ext_resource type="AudioStream" uid="uid://cypdbewpvx1lx" path="res://assets/Sounds/Gear.ogg" id="1_yp7qy"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_yp7qy")
