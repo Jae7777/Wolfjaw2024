@@ -69,56 +69,96 @@ position = Vector2(432, 107)
 [node name="Parallax2D" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D"]
+[node name="Sky" type="ParallaxLayer" parent="Parallax2D"]
 motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="1" type="Sprite2D" parent="Parallax2D/ParallaxLayer"]
+[node name="1" type="Sprite2D" parent="Parallax2D/Sky"]
 texture = ExtResource("11_oyjgk")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Parallax2D"]
-motion_scale = Vector2(0.2, 1)
+[node name="2" type="Sprite2D" parent="Parallax2D/Sky"]
+position = Vector2(1921, 0)
+texture = ExtResource("11_oyjgk")
 
-[node name="2" type="Sprite2D" parent="Parallax2D/ParallaxLayer2"]
+[node name="Sun" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.01, 1)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="2" type="Sprite2D" parent="Parallax2D/Sun"]
 texture = ExtResource("8_77myc")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Parallax2D"]
+[node name="Cloud" type="ParallaxLayer" parent="Parallax2D"]
 motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1920, 0)
 
-[node name="3" type="Sprite2D" parent="Parallax2D/ParallaxLayer3"]
+[node name="3" type="Sprite2D" parent="Parallax2D/Cloud"]
 texture = ExtResource("7_mlaci")
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="Parallax2D"]
-motion_scale = Vector2(0.4, 1)
+[node name="4" type="Sprite2D" parent="Parallax2D/Cloud"]
+position = Vector2(1922, 0)
+texture = ExtResource("7_mlaci")
 
-[node name="4" type="Sprite2D" parent="Parallax2D/ParallaxLayer4"]
+[node name="FarTrees" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="4" type="Sprite2D" parent="Parallax2D/FarTrees"]
 texture = ExtResource("6_1do40")
 
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="Parallax2D"]
-motion_scale = Vector2(0.5, 1)
+[node name="5" type="Sprite2D" parent="Parallax2D/FarTrees"]
+position = Vector2(1919, 0)
+texture = ExtResource("6_1do40")
 
-[node name="5" type="Sprite2D" parent="Parallax2D/ParallaxLayer5"]
+[node name="NearTrees" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="5" type="Sprite2D" parent="Parallax2D/NearTrees"]
 texture = ExtResource("5_h28rx")
 
-[node name="ParallaxLayer6" type="ParallaxLayer" parent="Parallax2D"]
-motion_scale = Vector2(0.6, 1)
+[node name="6" type="Sprite2D" parent="Parallax2D/NearTrees"]
+position = Vector2(1922, 0)
+texture = ExtResource("5_h28rx")
 
-[node name="6" type="Sprite2D" parent="Parallax2D/ParallaxLayer6"]
+[node name="Canopy" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="6" type="Sprite2D" parent="Parallax2D/Canopy"]
 texture = ExtResource("4_42jvv")
 
-[node name="ParallaxLayer7" type="ParallaxLayer" parent="Parallax2D"]
-motion_scale = Vector2(0.7, 1)
+[node name="7" type="Sprite2D" parent="Parallax2D/Canopy"]
+position = Vector2(1921, 0)
+texture = ExtResource("4_42jvv")
 
-[node name="7" type="Sprite2D" parent="Parallax2D/ParallaxLayer7"]
+[node name="Vines" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="7" type="Sprite2D" parent="Parallax2D/Vines"]
 texture = ExtResource("3_lssv3")
 
-[node name="ParallaxLayer8" type="ParallaxLayer" parent="Parallax2D"]
-motion_scale = Vector2(0.8, 1)
+[node name="8" type="Sprite2D" parent="Parallax2D/Vines"]
+position = Vector2(1922, 0)
+texture = ExtResource("3_lssv3")
 
-[node name="8" type="Sprite2D" parent="Parallax2D/ParallaxLayer8"]
+[node name="Grass" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="8" type="Sprite2D" parent="Parallax2D/Grass"]
 texture = ExtResource("2_oj4gi")
 
-[node name="ParallaxLayer9" type="ParallaxLayer" parent="Parallax2D"]
+[node name="9" type="Sprite2D" parent="Parallax2D/Grass"]
+position = Vector2(1921, 0)
+texture = ExtResource("2_oj4gi")
 
-[node name="8" type="Sprite2D" parent="Parallax2D/ParallaxLayer9"]
+[node name="Bush" type="ParallaxLayer" parent="Parallax2D"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="8" type="Sprite2D" parent="Parallax2D/Bush"]
+texture = ExtResource("14_fbuvc")
+
+[node name="9" type="Sprite2D" parent="Parallax2D/Bush"]
+position = Vector2(1922, 0)
 texture = ExtResource("14_fbuvc")
