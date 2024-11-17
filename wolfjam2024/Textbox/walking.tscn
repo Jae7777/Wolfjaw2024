@@ -1,15 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dofcrcwg6cvlu"]
+[gd_scene load_steps=13 format=3 uid="uid://cxkp7w01lx10q"]
 
-[ext_resource type="Script" path="res://Textbox/dialogue_box.gd" id="1_0tfgp"]
-[ext_resource type="Texture2D" uid="uid://c01nln3np5ppi" path="res://assets/MainMenu.jpg" id="2_8fwvs"]
-
-
-[ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="2_xau0w"]
-[ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_tii1h"]
-[ext_resource type="Texture2D" uid="uid://17o8hwv2iqi" path="res://assets/Portraits/Talos.png" id="4_rn8cs"]
-[ext_resource type="Shader" path="res://textbox/speaker2_active.gdshader" id="5_tdbis"]
-[ext_resource type="Texture2D" uid="uid://cr31r5ovx8h53" path="res://assets/Portraits/Kiko.png" id="6_6wgvv"]
-[ext_resource type="AudioStream" uid="uid://cxsf08o48osiy" path="res://Textbox/Kiko.mp3" id="8_w17x4"]
+[ext_resource type="Script" path="res://Textbox/walking.gd" id="1_ohgh7"]
+[ext_resource type="Texture2D" uid="uid://cj3muuqc6vixg" path="res://assets/MainMenu.png" id="1_tc2mh"]
+[ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="2_1xneg"]
+[ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_unpkt"]
+[ext_resource type="Texture2D" uid="uid://cr31r5ovx8h53" path="res://assets/Portraits/Kiko.png" id="4_2rtnp"]
+[ext_resource type="Shader" path="res://textbox/speaker2_active.gdshader" id="5_a1gxw"]
+[ext_resource type="Texture2D" uid="uid://17o8hwv2iqi" path="res://assets/Portraits/Talos.png" id="6_0f75x"]
+[ext_resource type="AudioStream" uid="uid://cxsf08o48osiy" path="res://Textbox/Kiko.mp3" id="7_hp2jp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iussw"]
 bg_color = Color(0, 0, 0, 1)
@@ -23,20 +21,20 @@ border_color = Color(1, 1, 1, 1)
 bg_color = Color(0.303233, 0.303233, 0.303233, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8tsnd"]
-shader = ExtResource("3_tii1h")
+shader = ExtResource("3_unpkt")
 shader_parameter/off = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hoapc"]
-shader = ExtResource("5_tdbis")
+shader = ExtResource("5_a1gxw")
 shader_parameter/off = true
 
-[node name="DialogueBox" type="CanvasLayer"]
-script = ExtResource("1_0tfgp")
+[node name="walking" type="CanvasLayer"]
+script = ExtResource("1_ohgh7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 540.5)
-scale = Vector2(0.813559, 0.659146)
-texture = ExtResource("2_voqxg")
+position = Vector2(953, 421)
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("1_tc2mh")
 
 [node name="DialogueBoxContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
@@ -79,7 +77,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_xau0w")
+theme_override_fonts/font = ExtResource("2_1xneg")
 theme_override_font_sizes/font_size = 40
 text = "According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh, black and yellow! Let's shake it up a little. Barry! Breakfast is ready! Coming! Hang on a second. Hello? - Barry? - Adam? - Can you believe this is happening? "
 autowrap_mode = 3
@@ -90,7 +88,7 @@ custom_minimum_size = Vector2(103, 48)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_xau0w")
+theme_override_fonts/font = ExtResource("2_1xneg")
 theme_override_font_sizes/font_size = 40
 text = ". . . v"
 
@@ -108,7 +106,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_xau0w")
+theme_override_fonts/font = ExtResource("2_1xneg")
 theme_override_font_sizes/font_size = 35
 text = "Name:"
 
@@ -138,7 +136,7 @@ size_flags_horizontal = 0
 [node name="Speaker1" type="Sprite2D" parent="SpeakerContainer/Container"]
 material = SubResource("ShaderMaterial_8tsnd")
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_6wgvv")
+texture = ExtResource("4_2rtnp")
 
 [node name="Container2" type="Container" parent="SpeakerContainer"]
 layout_mode = 2
@@ -147,9 +145,9 @@ size_flags_horizontal = 8
 [node name="Speaker2" type="Sprite2D" parent="SpeakerContainer/Container2"]
 material = SubResource("ShaderMaterial_hoapc")
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_rn8cs")
+texture = ExtResource("6_0f75x")
 
 [node name="AudioStream" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_w17x4")
+stream = ExtResource("7_hp2jp")
 
 [connection signal="timeout" from="DialogueBoxContainer/LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
