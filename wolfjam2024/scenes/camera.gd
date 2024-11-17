@@ -1,4 +1,4 @@
-extends Camera2D
+extends Node2D
 
 @export var target: CharacterBody2D
 

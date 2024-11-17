@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="7_8hd1u"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axra0"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_82786"]
 animations = [{
 "frames": [],
@@ -20,9 +22,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_axra0"]
-
 [node name="Kid" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 3
 
@@ -35,14 +36,14 @@ max_value = 3.0
 rounded = true
 show_percentage = false
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.30689, -6.2706)
+shape = SubResource("RectangleShape2D_axra0")
+
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_82786")
 animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(6.30689, -6.2706)
-shape = SubResource("RectangleShape2D_axra0")
 
 [node name="Rifle" parent="." instance=ExtResource("2_sgf03")]
 position = Vector2(-251, -153)

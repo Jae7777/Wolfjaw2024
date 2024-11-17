@@ -2,5 +2,9 @@
 
 [ext_resource type="Script" path="res://scenes/camera.gd" id="1_14syt"]
 
-[node name="Camera2D" type="Camera2D"]
+[node name="CameraAnchor" type="Node2D"]
 script = ExtResource("1_14syt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -264)
+zoom = Vector2(0.4, 0.4)

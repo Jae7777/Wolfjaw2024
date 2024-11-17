@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cifylxywulch3" path="res://assets/character/pop_walk/1.png" id="1_vb0of"]
 [ext_resource type="Texture2D" uid="uid://dvjwwcs1xru78" path="res://assets/character/pop_walk/2.png" id="2_61nyk"]
 [ext_resource type="Texture2D" uid="uid://g14tld6o6qpg" path="res://assets/character/pop_idle/1.png" id="2_adrhq"]
-[ext_resource type="PackedScene" uid="uid://cgkguxs525cxq" uid="uid://cgkguxs525cxq" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
+[ext_resource type="PackedScene" uid="uid://cgkguxs525cxq" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
 [ext_resource type="Texture2D" uid="uid://bh0bffxspd0xu" path="res://assets/character/pop_idle/2.png" id="3_hwjrq"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
 [ext_resource type="Texture2D" uid="uid://7edokrsrpah7" path="res://assets/character/pop_walk/3.png" id="3_x2uj1"]
@@ -14,11 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://tioufd3laalf" path="res://assets/character/pop_walk/5.png" id="5_ek0pi"]
 [ext_resource type="Texture2D" uid="uid://bvea2od54jyin" path="res://assets/character/pop_idle/4.png" id="5_mnb5e"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
-[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
 [ext_resource type="Texture2D" uid="uid://cksf7ysjtol8l" path="res://assets/character/pop_walk/6.png" id="6_nju8r"]
 [ext_resource type="Texture2D" uid="uid://c83fjwrsac75v" path="res://assets/character/pop_walk/7.png" id="7_0d0wx"]
 [ext_resource type="Texture2D" uid="uid://cuoyer8un08nm" path="res://assets/character/pop_walk/8.png" id="8_yityc"]
-[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p6p4"]
+radius = 58.9658
+height = 293.375
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
 blend_mode = 1
@@ -72,11 +75,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p6p4"]
-radius = 77.9548
-height = 293.375
-
 [node name="Peepaw" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 3
 
@@ -84,16 +84,16 @@ collision_mask = 3
 target = NodePath("..")
 healthbar = NodePath("../HealthBar")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17, -7)
+scale = Vector2(1.00058, 1.00213)
+shape = SubResource("CapsuleShape2D_2p6p4")
+
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_ltkao")
 scale = Vector2(0.3, 0.302)
 sprite_frames = SubResource("SpriteFrames_qu1up")
 animation = &"walk"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-17, -7)
-scale = Vector2(1.00058, 1.00213)
-shape = SubResource("CapsuleShape2D_2p6p4")
 
 [node name="Fists" parent="." instance=ExtResource("2_fmxsh")]
 position = Vector2(93, -17)
