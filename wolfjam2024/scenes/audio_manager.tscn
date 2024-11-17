@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ggb350jstt7i"]
+
+[ext_resource type="AudioStream" uid="uid://u0ddmf11rfgs" path="res://assets/Sounds/Fine Mist.ogg" id="1_cv2uk"]
+
+[node name="AudioManager" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_cv2uk")
+volume_db = -10.0

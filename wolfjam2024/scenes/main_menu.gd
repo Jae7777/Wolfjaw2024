@@ -11,7 +11,11 @@ func _on_start_pressed() -> void:
   _set_buttons_visibility(false)
   TransitionScreen.transition()
   await TransitionScreen.on_transition_finished
+<<<<<<< Updated upstream
   get_tree().change_scene_to_file("res://Textbox/dialogue_box.tscn")
+=======
+  get_tree().change_scene_to_file("res://textbox/walking.tscn")
+>>>>>>> Stashed changes
 
 func _on_options_pressed() -> void:
   _set_buttons_visibility(false)

@@ -1,5 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dofcrcwg6cvlu"]
 
+<<<<<<< Updated upstream:wolfjam2024/Textbox/dialogue_box.tscn
 [ext_resource type="Script" path="res://textbox/dialogue_box.gd" id="1_rimaa"]
 [ext_resource type="Texture2D" uid="uid://c01nln3np5ppi" path="res://assets/MainMenu.jpg" id="2_8fwvs"]
 [ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="2_xau0w"]
@@ -7,6 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://17o8hwv2iqi" path="res://assets/Portraits/Talos.png" id="4_rn8cs"]
 [ext_resource type="Shader" path="res://textbox/speaker2_active.gdshader" id="5_tdbis"]
 [ext_resource type="Texture2D" uid="uid://cr31r5ovx8h53" path="res://assets/Portraits/Kiko.png" id="6_6wgvv"]
+=======
+[ext_resource type="Script" path="res://Textbox/walking.gd" id="1_ohgh7"]
+[ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://textbox/bedstead.regular.otf" id="2_1xneg"]
+[ext_resource type="Texture2D" uid="uid://c0eeaxxxccybn" path="res://assets/walkntalk.png" id="2_8xh0u"]
+[ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_unpkt"]
+[ext_resource type="Texture2D" uid="uid://cr31r5ovx8h53" path="res://assets/Portraits/Kiko.png" id="4_2rtnp"]
+[ext_resource type="Shader" path="res://textbox/speaker2_active.gdshader" id="5_a1gxw"]
+[ext_resource type="Texture2D" uid="uid://17o8hwv2iqi" path="res://assets/Portraits/Talos.png" id="6_0f75x"]
+[ext_resource type="AudioStream" uid="uid://cxsf08o48osiy" path="res://textbox/Kiko.mp3" id="7_hp2jp"]
+>>>>>>> Stashed changes:wolfjam2024/Textbox/walking.tscn
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iussw"]
 bg_color = Color(0, 0, 0, 1)
