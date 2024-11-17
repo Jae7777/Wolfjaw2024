@@ -1,13 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxkp7w01lx10q"]
+[gd_scene load_steps=15 format=3 uid="uid://0kabq5as8sd3"]
 
-[ext_resource type="Script" path="res://Textbox/walking.gd" id="1_ohgh7"]
-[ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="2_1xneg"]
+[ext_resource type="Script" path="res://textbox/walking.gd" id="1_ctbny"]
+[ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://textbox/bedstead.regular.otf" id="2_1xneg"]
 [ext_resource type="Texture2D" uid="uid://c0eeaxxxccybn" path="res://assets/walkntalk.png" id="2_8xh0u"]
 [ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_unpkt"]
 [ext_resource type="Texture2D" uid="uid://cr31r5ovx8h53" path="res://assets/Portraits/Kiko.png" id="4_2rtnp"]
 [ext_resource type="Shader" path="res://textbox/speaker2_active.gdshader" id="5_a1gxw"]
 [ext_resource type="Texture2D" uid="uid://17o8hwv2iqi" path="res://assets/Portraits/Talos.png" id="6_0f75x"]
-[ext_resource type="AudioStream" uid="uid://cxsf08o48osiy" path="res://Textbox/Kiko.mp3" id="7_hp2jp"]
+[ext_resource type="AudioStream" uid="uid://cxsf08o48osiy" path="res://textbox/Kiko.mp3" id="7_hp2jp"]
+[ext_resource type="AudioStream" uid="uid://d3ul44krncget" path="res://assets/Sounds/walking_loop.mp3" id="9_0khak"]
+[ext_resource type="AudioStream" uid="uid://u0ddmf11rfgs" path="res://assets/Sounds/Fine Mist.ogg" id="10_1sk8o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iussw"]
 bg_color = Color(0, 0, 0, 1)
@@ -29,7 +31,7 @@ shader = ExtResource("5_a1gxw")
 shader_parameter/off = true
 
 [node name="walking" type="CanvasLayer"]
-script = ExtResource("1_ohgh7")
+script = ExtResource("1_ctbny")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_8xh0u")
@@ -148,5 +150,13 @@ texture = ExtResource("6_0f75x")
 
 [node name="AudioStream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_hp2jp")
+
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_0khak")
+volume_db = -14.0
+
+[node name="WalkingTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_1sk8o")
+volume_db = -10.0
 
 [connection signal="timeout" from="DialogueBoxContainer/LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

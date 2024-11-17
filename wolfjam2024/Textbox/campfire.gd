@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 static var punctuation_time = 0.35
-static var comma_time = 0.2
-static var letter_time = 0.1
+static var comma_time = 0.15
+static var letter_time = 0.05
 
 @onready var dialogue_box = $DialogueBoxContainer
 @onready var speaker_container = $SpeakerContainer
@@ -15,13 +15,15 @@ static var letter_time = 0.1
 @onready var speaker2 = $SpeakerContainer/Container2/Speaker2
 
 @onready var audio_player = $AudioStream
-@onready var kiko_sound = preload("res://Textbox/Kiko.mp3")
-@onready var talos_sound = preload("res://Textbox/Talos.mp3")
+@onready var kiko_sound = preload("res://textbox/Kiko.mp3")
+@onready var talos_sound = preload("res://textbox/Talos.mp3")
+
+@onready var camp_theme = $CampfireTheme
 
 var next_text
 var i = 0
 var itemData = {}
-var dialogue_file_path = "res://Textbox/dialogue_scripts/campfire.txt"
+var dialogue_file_path = "res://textbox/dialogue_scripts/campfire.txt"
 var file
 
 static var finished_displaying = false
@@ -30,8 +32,7 @@ var sfx
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    AudioManager3.stop()
-    AudioManager2.play()
+    camp_theme.play()
     hide_textbox()
     read_file(dialogue_file_path)
     
@@ -47,6 +48,7 @@ func _input(event):
                 hide_textbox()
                 TransitionScreen.transition()
                 await TransitionScreen.on_transition_finished
+                camp_theme.stop()
                 get_tree().change_scene_to_file("res://scenes/level.tscn")
             else:
                 #get next dialogue
@@ -88,7 +90,7 @@ func _display_letter() -> void:
         "!", ".", "?", "-":
             timer.start(punctuation_time)
             i += 1
-        ",":
+        ",", "*":
             timer.start(comma_time)
             i += 1
         " ":

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bveshthpi8fhq"
-path="res://.godot/imported/Talos.mp3-97cd05272e2e21e19fc0d902d2536291.mp3str"
+path="res://.godot/imported/Talos.mp3-23d24fab115d70bb2182eddd0b053c8b.mp3str"
 
 [deps]
 
-source_file="res://Textbox/Talos.mp3"
-dest_files=["res://.godot/imported/Talos.mp3-97cd05272e2e21e19fc0d902d2536291.mp3str"]
+source_file="res://textbox/Talos.mp3"
+dest_files=["res://.godot/imported/Talos.mp3-23d24fab115d70bb2182eddd0b053c8b.mp3str"]
 
 [params]
 

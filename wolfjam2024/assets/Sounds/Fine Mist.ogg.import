@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Fine Mist.ogg-a663d0e80d8611699ac922a71a581a2
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

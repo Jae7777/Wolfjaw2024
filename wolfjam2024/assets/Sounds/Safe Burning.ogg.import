@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Safe Burning.ogg-ada56d6e6f797f944e5c6bcea6ab
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

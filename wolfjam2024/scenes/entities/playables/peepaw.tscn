@@ -1,10 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://dqdfjntq0rnt5"]
+[gd_scene load_steps=33 format=3 uid="uid://dqdfjntq0rnt5"]
 
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="1_jwfy5"]
 [ext_resource type="Texture2D" uid="uid://cifylxywulch3" path="res://assets/character/pop_walk/1.png" id="1_vb0of"]
 [ext_resource type="Texture2D" uid="uid://dvjwwcs1xru78" path="res://assets/character/pop_walk/2.png" id="2_61nyk"]
 [ext_resource type="Texture2D" uid="uid://g14tld6o6qpg" path="res://assets/character/pop_idle/1.png" id="2_adrhq"]
-[ext_resource type="PackedScene" uid="uid://cgkguxs525cxq" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
 [ext_resource type="Texture2D" uid="uid://bh0bffxspd0xu" path="res://assets/character/pop_idle/2.png" id="3_hwjrq"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
 [ext_resource type="Texture2D" uid="uid://7edokrsrpah7" path="res://assets/character/pop_walk/3.png" id="3_x2uj1"]
@@ -34,9 +34,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p6p4"]
 radius = 58.9658
 height = 293.375
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ltkao"]
-blend_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qu1up"]
 animations = [{
@@ -144,7 +141,6 @@ scale = Vector2(1.00058, 1.00213)
 shape = SubResource("CapsuleShape2D_2p6p4")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_ltkao")
 position = Vector2(0, -20)
 scale = Vector2(0.4, 0.403)
 sprite_frames = SubResource("SpriteFrames_qu1up")

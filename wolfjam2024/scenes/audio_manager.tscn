@@ -4,3 +4,4 @@
 
 [node name="AudioManager" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_cv2uk")
+volume_db = -10.0

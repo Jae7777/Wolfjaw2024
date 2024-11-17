@@ -4,15 +4,17 @@ extends MarginContainer
 @onready var options_button = $HBoxContainer/VBoxContainer/MenuOptions/Options
 @onready var quit_button = $HBoxContainer/VBoxContainer/MenuOptions/Quit
 
+@onready var main_theme = $MainTheme
+
 func _ready():
-  pass
+  main_theme.play()
 
 func _on_start_pressed() -> void:
-  AudioManager.play()
+  main_theme.stop()
   _set_buttons_visibility(false)
   TransitionScreen.transition()
   await TransitionScreen.on_transition_finished
-  get_tree().change_scene_to_file("res://Textbox/walking.tscn")
+  get_tree().change_scene_to_file("res://textbox/walking.tscn")
 
 func _on_options_pressed() -> void:
   _set_buttons_visibility(false)

@@ -1,164 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://bfpydw8am3vv8"]
+[gd_scene load_steps=14 format=3 uid="uid://bfpydw8am3vv8"]
 
-[ext_resource type="PackedScene" uid="uid://g5acn73eydre" path="res://scenes/AudioManager3.tscn" id="1_a6lg8"]
-[ext_resource type="PackedScene" uid="uid://sw35qttxj2gv" path="res://scenes/audio_manager2.tscn" id="1_lw6sq"]
+[ext_resource type="Script" path="res://textbox/campfire.gd" id="1_dnlpr"]
 [ext_resource type="Texture2D" uid="uid://djvmh5pspo34r" path="res://assets/campfire.png" id="2_tngvo"]
-[ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="3_bkrw7"]
+[ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://textbox/bedstead.regular.otf" id="3_bkrw7"]
 [ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="4_wc8v8"]
 [ext_resource type="Texture2D" uid="uid://cr31r5ovx8h53" path="res://assets/Portraits/Kiko.png" id="5_08ndf"]
 [ext_resource type="Shader" path="res://textbox/speaker2_active.gdshader" id="6_rkgj3"]
 [ext_resource type="Texture2D" uid="uid://17o8hwv2iqi" path="res://assets/Portraits/Talos.png" id="7_jlo68"]
-[ext_resource type="AudioStream" uid="uid://cxsf08o48osiy" path="res://Textbox/Kiko.mp3" id="8_tbqt1"]
-
-[sub_resource type="GDScript" id="GDScript_sr3wl"]
-script/source = "extends CanvasLayer
-
-static var punctuation_time = 0.35
-static var comma_time = 0.2
-static var letter_time = 0.1
-
-@onready var dialogue_box = $DialogueBoxContainer
-@onready var speaker_container = $SpeakerContainer
-
-@onready var speaker = $DialogueBoxContainer/NameContainer/HBoxContainer3/Name
-@onready var content = $DialogueBoxContainer/TextContainer/HBoxContainer/Text
-@onready var continue_symbol = $DialogueBoxContainer/TextContainer/HBoxContainer/Continue
-@onready var timer = $DialogueBoxContainer/LetterDisplayTimer
-@onready var speaker1 = $SpeakerContainer/Container/Speaker1
-@onready var speaker2 = $SpeakerContainer/Container2/Speaker2
-
-@onready var audio_player = $AudioStream
-@onready var kiko_sound = preload(\"res://Textbox/Kiko.mp3\")
-@onready var talos_sound = preload(\"res://Textbox/Talos.mp3\")
-
-var next_text
-var i = 0
-var itemData = {}
-var dialogue_file_path = \"res://Textbox/dialogue_scripts/campfire.txt\"
-var file
-
-static var finished_displaying = false
-
-var sfx
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-    AudioManager2.play()
-    hide_textbox()
-    read_file(dialogue_file_path)
-    
-func _input(event):
-    if finished_displaying:
-        if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-            speaker.text = \"\"
-            content.text = \"\"
-            continue_symbol.text = \"\"
-            finished_displaying = false
-            if file.eof_reached():
-                file.close()
-                hide_textbox()
-                TransitionScreen.transition()
-                await TransitionScreen.on_transition_finished
-                get_tree().change_scene_to_file(\"res://scenes/level.tscn\")
-            else:
-                #get next dialogue
-                add_next(file.get_line(), file.get_line())
-        
-    else:
-        if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-            content.text = next_text
-            i = next_text.length()
-
-#Hides the textbox when not in use
-func hide_textbox():
-    speaker.text = \"\"
-    content.text = \"\"
-    continue_symbol.text = \"\"
-    speaker1.material.set(\"shader_parameter/off\", true)
-    speaker2.material.set(\"shader_parameter/off\", true)
-    speaker_container.hide()
-    i = 0
-    dialogue_box.hide()
-
-# Displays letter one at a time with appropriate timing for punctuation
-func _display_letter() -> void:
-    if i >= next_text.length():
-        # All letters have been displayed, mark as finished
-        finished_displaying = true
-        continue_symbol.text = \". . . v\"  # Show continue symbol
-        i = 0  # Reset for next dialogue
-        return
-    
-    # Get the next character from the text
-    var current_char = next_text[i]
-
-    # Add the character to the content text box
-    content.text += current_char
-
-    # Handle timing based on punctuation or general letters
-    match current_char:
-        \"!\", \".\", \"?\", \"-\":
-            timer.start(punctuation_time)
-            i += 1
-        \",\":
-            timer.start(comma_time)
-            i += 1
-        \" \":
-            timer.start(letter_time)
-            i += 1
-        _:
-            timer.start(letter_time)
-
-            # Increment the index to the next letter
-            i += 1
-            # Play sound effect with slight pitch variation
-            var new_audio_player = audio_player.duplicate()
-            new_audio_player.pitch_scale += randf_range(-0.1, 0.1)  # Random pitch variation
-            if current_char in [\"a\", \"e\", \"i\", \"o\", \"u\"]:
-                new_audio_player.pitch_scale += 0.2  # Slight pitch boost for vowels
-
-            # Add the audio player to the scene tree and play sound
-            get_tree().root.add_child(new_audio_player)
-            new_audio_player.play()
-
-            # Wait until the audio finishes before continuing
-            await new_audio_player.finished
-            new_audio_player.queue_free()  # Clean up the audio player
-
-            
-    
-#sets up text
-func add_next(next_speaker, nt):
-    speaker.text = next_speaker + \":\"
-    active_speaker(next_speaker)
-    next_text = nt
-    speaker_container.show()
-    dialogue_box.show()
-    _display_letter()
-    
-#brings active speaker forwards and sends other back
-func active_speaker(talker):
-    if(talker == \"Talos\"):
-        speaker1.material.set(\"shader_parameter/off\", true)
-        speaker2.material.set(\"shader_parameter/off\", false)
-        audio_player.stream = talos_sound
-    elif(talker == \"Kiko\"):
-        speaker1.material.set(\"shader_parameter/off\", false)
-        speaker2.material.set(\"shader_parameter/off\", true)
-        audio_player.stream = kiko_sound
-
-# This function reads a file line by line
-func read_file(file_path: String) -> void:
-    # Open the file for reading
-    if FileAccess.file_exists(file_path):
-        file = FileAccess.open(file_path, FileAccess.READ)
-        add_next(file.get_line(), file.get_line())
-    else:
-        push_error(\"Missing Dialogue File\")
-
-func _on_letter_display_timer_timeout() -> void:
-    _display_letter()
-"
+[ext_resource type="AudioStream" uid="uid://cxsf08o48osiy" path="res://textbox/Kiko.mp3" id="8_tbqt1"]
+[ext_resource type="AudioStream" uid="uid://dftqahhim1fua" path="res://assets/Sounds/Safe Burning.ogg" id="9_01tcl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iussw"]
 bg_color = Color(0, 0, 0, 1)
@@ -180,9 +30,7 @@ shader = ExtResource("6_rkgj3")
 shader_parameter/off = true
 
 [node name="Campfire" type="CanvasLayer"]
-script = SubResource("GDScript_sr3wl")
-
-[node name="AudioStreamPlayer2D2" parent="." instance=ExtResource("1_a6lg8")]
+script = ExtResource("1_dnlpr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -303,6 +151,8 @@ texture = ExtResource("7_jlo68")
 [node name="AudioStream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_tbqt1")
 
-[node name="AudioStreamPlayer2D3" parent="." instance=ExtResource("1_lw6sq")]
+[node name="CampfireTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_01tcl")
+volume_db = -10.0
 
 [connection signal="timeout" from="DialogueBoxContainer/LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
