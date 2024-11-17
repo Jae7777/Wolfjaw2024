@@ -5,6 +5,7 @@ BrokenHearted is a side-scrolling action rpg hackathon project for Wolfjam 2024.
 
 ## 2. How to Run/Play
 Simply run the Wolfjam2024.exe in the project folder.
+When prompted with an option that says "Don't run", click more info and run anyway.
 The controls are in the options tab on the main menu.
 The game will take you to a side-scrolling section after the opening scene, which has no win condition and just changes scene after a set time. Please just take this time to try the movement and attacks? It is just a proof of concept.
 
