@@ -2,7 +2,7 @@ extends Node
 
 @export var target1: CharacterBody2D
 @export var target2: CharacterBody2D
-@export var camera: Camera2D
+@export var camera: Node2D
 
 var curr_target: CharacterBody2D
 var movement_input := Vector2.ZERO

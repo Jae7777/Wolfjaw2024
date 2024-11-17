@@ -23,8 +23,8 @@ size = Vector2(20, 755.682)
 
 [node name="Level" type="Node2D"]
 
-[node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_uu85q")]
-position = Vector2(0, -385)
+[node name="CameraAnchor" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_uu85q")]
+position = Vector2(-8, -114)
 target = NodePath("../Player/Peepaw")
 
 [node name="Player" type="Node2D" parent="."]
@@ -123,7 +123,7 @@ shape = SubResource("RectangleShape2D_amk7h")
 script = ExtResource("3_r8k6y")
 target1 = NodePath("../Player/Peepaw")
 target2 = NodePath("../Player/Kid")
-camera = NodePath("../Camera2D")
+camera = NodePath("../CameraAnchor")
 
 [node name="Enemy" parent="." instance=ExtResource("5_27dix")]
 position = Vector2(432, 724)
