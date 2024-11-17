@@ -31,8 +31,8 @@ shader_parameter/off = true
 script = ExtResource("1_rimaa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(959, 413)
-scale = Vector2(0.36, 0.36)
+position = Vector2(960, 540.5)
+scale = Vector2(0.813559, 0.659146)
 texture = ExtResource("2_voqxg")
 
 [node name="DialogueBoxContainer" type="MarginContainer" parent="."]
