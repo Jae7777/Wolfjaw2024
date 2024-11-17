@@ -57,6 +57,11 @@ func handle_move() -> void:
   if Input.is_action_just_pressed('roll'):
     curr_target.get_node("PlayableMoveComponent").roll()
 
+  if Input.is_action_pressed('sprint') and curr_target.is_on_floor():
+    curr_target.get_node("PlayableMoveComponent").sprint()
+  else:
+    curr_target.get_node("PlayableMoveComponent").unsprint()
+
 func update_render_order() -> void:
   # Ensure the current target is rendered above the other character
   if curr_target == target1:

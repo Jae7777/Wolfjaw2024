@@ -35,8 +35,7 @@ position = Vector2(0, 506)
 position = Vector2(26, -285)
 
 [node name="Kid" parent="Player" instance=ExtResource("3_8va15")]
-position = Vector2(-301, -167)
-scale = Vector2(2, 1.934)
+position = Vector2(-363, -255)
 
 [node name="World" type="StaticBody2D" parent="."]
 position = Vector2(0, 405)
