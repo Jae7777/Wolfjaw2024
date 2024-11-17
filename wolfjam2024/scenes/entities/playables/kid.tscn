@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="3_gpq61"]
 [ext_resource type="AudioStream" uid="uid://xwpw7x4xx04p" path="res://assets/Sounds/walking.mp3" id="3_vqy5l"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="4_b4oee"]
-[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
+[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="7_8hd1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axra0"]
@@ -15,6 +15,11 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"melee",
 "speed": 5.0
 }, {
 "frames": [],
@@ -43,7 +48,7 @@ shape = SubResource("RectangleShape2D_axra0")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_82786")
-animation = &"idle"
+animation = &"melee"
 
 [node name="Rifle" parent="." instance=ExtResource("2_sgf03")]
 position = Vector2(-251, -153)
@@ -57,6 +62,9 @@ one_shot = true
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
 base_speed = 600
+run_speed = 600.0
+defend_speed = 120.0
+jump_velocity = -600
 roll_speed = 0
 animated_sprite = NodePath("../Sprite2D")
 
@@ -71,9 +79,10 @@ target = NodePath("..")
 [node name="GravityComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_b4oee")]
 target = NodePath("..")
 
-[node name="PlayableAttackComponent" parent="." node_paths=PackedStringArray("target", "weapon") instance=ExtResource("6_1r636")]
+[node name="PlayableAttackComponent" parent="." node_paths=PackedStringArray("target", "weapon", "animated_sprite") instance=ExtResource("6_1r636")]
 target = NodePath("..")
 weapon = NodePath("../Rifle")
+animated_sprite = NodePath("../Sprite2D")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("target", "healthbar") instance=ExtResource("7_8hd1u")]
 target = NodePath("..")
