@@ -180,9 +180,9 @@ shader_parameter/off = true
 script = SubResource("GDScript_sr3wl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(962, 541)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_tngvo")
+centered = false
 
 [node name="DialogueBoxContainer" type="MarginContainer" parent="."]
 anchors_preset = 12

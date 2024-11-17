@@ -43,8 +43,6 @@ func _input(event):
             if file.eof_reached():
                 file.close()
                 hide_textbox()
-                TransitionScreen.transition()
-                await TransitionScreen.on_transition_finished
                 get_tree().change_scene_to_file("res://scenes/level.tscn")
             else:
                 #get next dialogue

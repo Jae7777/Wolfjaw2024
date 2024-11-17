@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://cxkp7w01lx10q"]
 
 [ext_resource type="Script" path="res://Textbox/walking.gd" id="1_ohgh7"]
-[ext_resource type="Texture2D" uid="uid://cj3muuqc6vixg" path="res://assets/MainMenu.png" id="1_tc2mh"]
 [ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="2_1xneg"]
+[ext_resource type="Texture2D" uid="uid://c0eeaxxxccybn" path="res://assets/walkntalk.png" id="2_8xh0u"]
 [ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_unpkt"]
 [ext_resource type="Texture2D" uid="uid://cr31r5ovx8h53" path="res://assets/Portraits/Kiko.png" id="4_2rtnp"]
 [ext_resource type="Shader" path="res://textbox/speaker2_active.gdshader" id="5_a1gxw"]
@@ -32,9 +32,8 @@ shader_parameter/off = true
 script = ExtResource("1_ohgh7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(953, 421)
-scale = Vector2(0.83, 0.83)
-texture = ExtResource("1_tc2mh")
+texture = ExtResource("2_8xh0u")
+centered = false
 
 [node name="DialogueBoxContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
