@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dofcrcwg6cvlu"]
 
 [ext_resource type="Script" path="res://Textbox/dialogue_box.gd" id="1_rimaa"]
-[ext_resource type="Texture2D" uid="uid://c01nln3np5ppi" path="res://assets/MainMenu.jpg" id="2_8fwvs"]
+[ext_resource type="Texture2D" uid="uid://cj3muuqc6vixg" path="res://assets/MainMenu.png" id="2_voqxg"]
 [ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="2_xau0w"]
 [ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_tii1h"]
 [ext_resource type="Texture2D" uid="uid://17o8hwv2iqi" path="res://assets/Portraits/Talos.png" id="4_rn8cs"]
@@ -33,7 +33,7 @@ script = ExtResource("1_rimaa")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(959, 413)
 scale = Vector2(0.36, 0.36)
-texture = ExtResource("2_8fwvs")
+texture = ExtResource("2_voqxg")
 
 [node name="DialogueBoxContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
