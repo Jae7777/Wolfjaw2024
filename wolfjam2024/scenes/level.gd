@@ -10,13 +10,6 @@ func _ready() -> void:
     if(!rested):
         timer.start(30)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass
-
-
-
 func _on_daytime_timeout() -> void:
     TransitionScreen.transition()
     await TransitionScreen.on_transition_finished

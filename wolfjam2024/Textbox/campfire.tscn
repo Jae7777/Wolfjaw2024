@@ -85,7 +85,7 @@ autowrap_mode = 3
 clip_text = true
 
 [node name="Continue" type="Label" parent="DialogueBoxContainer/TextContainer/HBoxContainer"]
-custom_minimum_size = Vector2(103, 48)
+custom_minimum_size = Vector2(167, 48)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
