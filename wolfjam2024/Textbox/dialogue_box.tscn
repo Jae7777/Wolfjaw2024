@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dofcrcwg6cvlu"]
 
-[ext_resource type="Script" path="res://textbox/dialogue_box.gd" id="1_rimaa"]
+[ext_resource type="Script" path="res://Textbox/dialogue_box.gd" id="1_rimaa"]
 [ext_resource type="Texture2D" uid="uid://c01nln3np5ppi" path="res://assets/MainMenu.jpg" id="2_8fwvs"]
 [ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="2_xau0w"]
 [ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_tii1h"]
