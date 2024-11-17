@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dofcrcwg6cvlu"]
+[gd_scene load_steps=13 format=3 uid="uid://dofcrcwg6cvlu"]
 
 [ext_resource type="Script" path="res://Textbox/dialogue_box.gd" id="1_rimaa"]
+[ext_resource type="PackedScene" uid="uid://du13n6scxdjhs" path="res://scenes/audio_manager.tscn" id="2_3rs8r"]
 [ext_resource type="Texture2D" uid="uid://cj3muuqc6vixg" path="res://assets/MainMenu.png" id="2_voqxg"]
 [ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="2_xau0w"]
 [ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="3_tii1h"]
@@ -29,6 +30,8 @@ shader_parameter/off = true
 
 [node name="DialogueBox" type="CanvasLayer"]
 script = ExtResource("1_rimaa")
+
+[node name="AudioManager" parent="." instance=ExtResource("2_3rs8r")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540.5)

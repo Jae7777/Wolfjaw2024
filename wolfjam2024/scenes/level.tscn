@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cngcomnkext5m"]
+[gd_scene load_steps=19 format=3 uid="uid://cngcomnkext5m"]
 
 [ext_resource type="PackedScene" uid="uid://cqlwb0dw7bkvc" path="res://scenes/camera.tscn" id="1_uu85q"]
 [ext_resource type="PackedScene" uid="uid://dqdfjntq0rnt5" path="res://scenes/entities/playables/peepaw.tscn" id="2_cwblp"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://ntkfivawb0wr" path="res://assets/background/2.png" id="8_77myc"]
 [ext_resource type="Texture2D" uid="uid://c53yl00t34wui" path="res://assets/background/1.png" id="11_oyjgk"]
 [ext_resource type="Texture2D" uid="uid://4jcmrh7dimo7" path="res://assets/background/9.png" id="14_fbuvc"]
+[ext_resource type="AudioStream" uid="uid://ggmrglu4jvsl" path="res://assets/Sounds/FineMist.ogg" id="15_5cnx8"]
+[ext_resource type="PackedScene" uid="uid://du13n6scxdjhs" path="res://scenes/audio_manager.tscn" id="16_wyaej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c12xx"]
 size = Vector2(3834, 69)
@@ -161,3 +163,10 @@ texture = ExtResource("14_fbuvc")
 [node name="9" type="Sprite2D" parent="Parallax2D/Bush"]
 position = Vector2(1922, 0)
 texture = ExtResource("14_fbuvc")
+
+[node name="FineMist" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_5cnx8")
+volume_db = -10.0
+parameters/looping = true
+
+[node name="AudioManager" parent="." instance=ExtResource("16_wyaej")]

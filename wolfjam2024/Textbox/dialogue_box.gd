@@ -24,6 +24,7 @@ static var finished_displaying = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    AudioManager.play()
     hide_textbox()
     read_file(dialogue_file_path)
     
