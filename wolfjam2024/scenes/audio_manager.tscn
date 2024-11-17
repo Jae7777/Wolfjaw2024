@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvag0nrxjjfuf"]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/FineMist.ogg" id="1_hupfy"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_hupfy")
+volume_db = -0.5
