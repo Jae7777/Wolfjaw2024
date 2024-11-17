@@ -11,7 +11,7 @@ func _on_start_pressed() -> void:
   _set_buttons_visibility(false)
   TransitionScreen.transition()
   await TransitionScreen.on_transition_finished
-  get_tree().change_scene_to_file("res://scenes/level.tscn")
+  get_tree().change_scene_to_file("res://Textbox/dialogue_box.tscn")
 
 func _on_options_pressed() -> void:
   _set_buttons_visibility(false)
