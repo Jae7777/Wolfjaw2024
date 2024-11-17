@@ -77,6 +77,9 @@ one_shot = true
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
 base_speed = 600
+run_speed = 500
+defend_speed = 120.0
+jump_velocity = -600
 roll_speed = 0
 animated_sprite = NodePath("../Sprite2D")
 
