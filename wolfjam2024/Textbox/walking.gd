@@ -21,7 +21,7 @@ static var letter_time = 0.1
 var next_text
 var i = 0
 var itemData = {}
-var dialogue_file_path = "res://textbox/dialogue_scripts/walking.txt"
+var dialogue_file_path = "res://Textbox/dialogue_scripts/walking.txt"
 var file
 
 static var finished_displaying = false
