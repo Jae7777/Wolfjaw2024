@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dqdfjntq0rnt5"]
+[gd_scene load_steps=34 format=3 uid="uid://dqdfjntq0rnt5"]
 
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="1_jwfy5"]
 [ext_resource type="Texture2D" uid="uid://cifylxywulch3" path="res://assets/character/pop_walk/1.png" id="1_vb0of"]
@@ -14,10 +14,21 @@
 [ext_resource type="Texture2D" uid="uid://tioufd3laalf" path="res://assets/character/pop_walk/5.png" id="5_ek0pi"]
 [ext_resource type="Texture2D" uid="uid://bvea2od54jyin" path="res://assets/character/pop_idle/4.png" id="5_mnb5e"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
-[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+[ext_resource type="Texture2D" uid="uid://dwp1vc0g25tas" path="res://assets/character/pop_melee/1.png" id="6_awvy0"]
 [ext_resource type="Texture2D" uid="uid://cksf7ysjtol8l" path="res://assets/character/pop_walk/6.png" id="6_nju8r"]
 [ext_resource type="Texture2D" uid="uid://c83fjwrsac75v" path="res://assets/character/pop_walk/7.png" id="7_0d0wx"]
+[ext_resource type="Texture2D" uid="uid://ds8f52tlae5li" path="res://assets/character/pop_melee/2.png" id="7_fdihv"]
+[ext_resource type="Texture2D" uid="uid://cokugjcqvo0y" path="res://assets/character/pop_melee/3.png" id="8_w67yq"]
 [ext_resource type="Texture2D" uid="uid://cuoyer8un08nm" path="res://assets/character/pop_walk/8.png" id="8_yityc"]
+[ext_resource type="Texture2D" uid="uid://d3vkpq2gp3or" path="res://assets/character/pop_melee/4.png" id="9_ngcyt"]
+[ext_resource type="Texture2D" uid="uid://da72c0cmg1mwv" path="res://assets/character/pop_melee/5.png" id="10_rp7uh"]
+[ext_resource type="Texture2D" uid="uid://blpycd1bw1euh" path="res://assets/character/pop_run/6.png" id="11_f8dcc"]
+[ext_resource type="Texture2D" uid="uid://s3o7nautlgnj" path="res://assets/character/pop_run/1.png" id="12_red4k"]
+[ext_resource type="Texture2D" uid="uid://davjo0b4qfhdr" path="res://assets/character/pop_run/3.png" id="13_1jh4d"]
+[ext_resource type="Texture2D" uid="uid://b8gpl6icg4ntn" path="res://assets/character/pop_run/2.png" id="14_nbesk"]
+[ext_resource type="Texture2D" uid="uid://bbdjrigjxw1nt" path="res://assets/character/pop_run/4.png" id="15_jj2bb"]
+[ext_resource type="Texture2D" uid="uid://ctygkkw6dduhe" path="res://assets/character/pop_run/5.png" id="16_dn3ed"]
 [ext_resource type="AudioStream" uid="uid://xwpw7x4xx04p" path="res://assets/Sounds/walking.mp3" id="16_sgbfm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p6p4"]
@@ -44,6 +55,49 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_awvy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fdihv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w67yq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ngcyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rp7uh")
+}],
+"loop": true,
+"name": &"melee",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_f8dcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_red4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1jh4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nbesk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jj2bb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_dn3ed")
+}],
+"loop": true,
+"name": &"run",
 "speed": 5.0
 }, {
 "frames": [{
@@ -94,8 +148,9 @@ material = SubResource("CanvasItemMaterial_ltkao")
 position = Vector2(0, -20)
 scale = Vector2(0.4, 0.403)
 sprite_frames = SubResource("SpriteFrames_qu1up")
-animation = &"idle"
-frame_progress = 0.304626
+animation = &"run"
+frame = 3
+frame_progress = 0.749634
 
 [node name="Fists" parent="." instance=ExtResource("2_fmxsh")]
 position = Vector2(93, -17)
@@ -119,9 +174,10 @@ target = NodePath("..")
 [node name="GravityComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_pvhaj")]
 target = NodePath("..")
 
-[node name="PlayableAttackComponent" parent="." node_paths=PackedStringArray("target", "weapon") instance=ExtResource("5_xvpaw")]
+[node name="PlayableAttackComponent" parent="." node_paths=PackedStringArray("target", "weapon", "animated_sprite") instance=ExtResource("5_xvpaw")]
 target = NodePath("..")
 weapon = NodePath("../Fists")
+animated_sprite = NodePath("../Sprite2D")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -55.0

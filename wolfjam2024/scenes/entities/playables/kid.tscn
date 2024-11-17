@@ -1,29 +1,116 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp4uowlnbh4dd"]
+[gd_scene load_steps=24 format=3 uid="uid://cp4uowlnbh4dd"]
 
+[ext_resource type="Texture2D" uid="uid://bewnv5mw2xjbq" path="res://assets/character/kid.png" id="1_2aofb"]
+[ext_resource type="Texture2D" uid="uid://chmnyt0wyjo4t" path="res://assets/character/kid_idle/2.png" id="1_mqmr3"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="2_f31ti"]
+[ext_resource type="Texture2D" uid="uid://d224whly6fvc7" path="res://assets/character/kid_idle/3.png" id="2_nywh6"]
 [ext_resource type="PackedScene" uid="uid://co6op0dk5axm1" path="res://scenes/weapons/rifle.tscn" id="2_sgf03"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="3_gpq61"]
 [ext_resource type="AudioStream" uid="uid://xwpw7x4xx04p" path="res://assets/Sounds/walking.mp3" id="3_vqy5l"]
+[ext_resource type="Texture2D" uid="uid://bnv5m4ixol0fb" path="res://assets/character/kid_run/1.png" id="4_7jy7p"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="4_b4oee"]
-[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
+[ext_resource type="Texture2D" uid="uid://ci72mib80v1vq" path="res://assets/character/kid_attack/1.png" id="4_bpdg6"]
+[ext_resource type="Texture2D" uid="uid://dc1mdmmgdingr" path="res://assets/character/kid_run/2.png" id="5_18isd"]
+[ext_resource type="Texture2D" uid="uid://cs2p6yvu4i3uq" path="res://assets/character/kid_attack/2.png" id="5_l62sj"]
+[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
+[ext_resource type="Texture2D" uid="uid://d4pddpvjtfpu" path="res://assets/character/kid_run/3.png" id="6_iuv0u"]
+[ext_resource type="Texture2D" uid="uid://df3j75f6rlb8k" path="res://assets/character/kid_attack/3.png" id="6_wp8ew"]
+[ext_resource type="Texture2D" uid="uid://ctek83un5d62t" path="res://assets/character/kid_attack/4.png" id="7_0lnpd"]
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="7_8hd1u"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_axra0"]
+[ext_resource type="Texture2D" uid="uid://7idg7gy56ci0" path="res://assets/character/kid_run/4.png" id="7_xb2t4"]
+[ext_resource type="Texture2D" uid="uid://dobunukwc5n7c" path="res://assets/character/kid_attack/5.png" id="8_g50sk"]
+[ext_resource type="Texture2D" uid="uid://b0yyp8834qrkr" path="res://assets/character/kid_run/5.png" id="8_q2bxp"]
+[ext_resource type="Texture2D" uid="uid://khgbnv4iv1dh" path="res://assets/character/kid_run/6.png" id="9_b5nba"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_82786"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mqmr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nywh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_2aofb")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bpdg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l62sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wp8ew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0lnpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g50sk")
+}],
+"loop": true,
+"name": &"melee",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7jy7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_18isd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iuv0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xb2t4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q2bxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b5nba")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7jy7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_18isd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iuv0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xb2t4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q2bxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b5nba")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5d8yu"]
+radius = 15.0629
+height = 115.14
+
 [node name="Kid" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
 collision_layer = 4
 collision_mask = 3
 
@@ -36,18 +123,22 @@ max_value = 3.0
 rounded = true
 show_percentage = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(6.30689, -6.2706)
-shape = SubResource("RectangleShape2D_axra0")
-
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(-0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_82786")
-animation = &"idle"
+animation = &"melee"
+frame_progress = 0.215632
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-20, -33)
+scale = Vector2(6.30689, -6.2706)
+shape = SubResource("CapsuleShape2D_5d8yu")
 
 [node name="Rifle" parent="." instance=ExtResource("2_sgf03")]
-position = Vector2(-251, -153)
+position = Vector2(-469, -507)
 rotation = 0.116627
+scale = Vector2(3, 3)
 
 [node name="DodgeTimer" type="Timer" parent="."]
 wait_time = 0.25
@@ -71,9 +162,10 @@ target = NodePath("..")
 [node name="GravityComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_b4oee")]
 target = NodePath("..")
 
-[node name="PlayableAttackComponent" parent="." node_paths=PackedStringArray("target", "weapon") instance=ExtResource("6_1r636")]
+[node name="PlayableAttackComponent" parent="." node_paths=PackedStringArray("target", "weapon", "animated_sprite") instance=ExtResource("6_1r636")]
 target = NodePath("..")
 weapon = NodePath("../Rifle")
+animated_sprite = NodePath("../Sprite2D")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("target", "healthbar") instance=ExtResource("7_8hd1u")]
 target = NodePath("..")

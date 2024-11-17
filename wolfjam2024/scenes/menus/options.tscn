@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfnv0oonjxdtd"]
 
 [ext_resource type="Script" path="res://scenes/menus/options.gd" id="1_f4eds"]
-[ext_resource type="Texture2D" uid="uid://c01nln3np5ppi" path="res://assets/MainMenu.jpg" id="2_gs0bq"]
+[ext_resource type="Texture2D" uid="uid://cj3muuqc6vixg" path="res://assets/MainMenu.png" id="2_4ienb"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = -1
@@ -16,7 +16,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_gs0bq")
+texture = ExtResource("2_4ienb")
 expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dftqahhim1fua"
+path="res://.godot/imported/Safe Burning.ogg-ada56d6e6f797f944e5c6bcea6ab3c5e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Sounds/Safe Burning.ogg"
+dest_files=["res://.godot/imported/Safe Burning.ogg-ada56d6e6f797f944e5c6bcea6ab3c5e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

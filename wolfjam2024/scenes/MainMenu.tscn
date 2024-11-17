@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdfyiatdgnmji"]
+[gd_scene load_steps=4 format=3 uid="uid://pmbfbpxthh2r"]
 
 [ext_resource type="Texture2D" uid="uid://cklsaafplqjkt" path="res://assets/Title.png" id="1"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_l3mcf"]
-[ext_resource type="Texture2D" uid="uid://c01nln3np5ppi" path="res://assets/MainMenu.jpg" id="3_8ngqc"]
+[ext_resource type="Texture2D" uid="uid://cj3muuqc6vixg" path="res://assets/MainMenu.png" id="2_rby37"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -17,7 +17,7 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
 layout_mode = 2
-texture = ExtResource("3_8ngqc")
+texture = ExtResource("2_rby37")
 expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
