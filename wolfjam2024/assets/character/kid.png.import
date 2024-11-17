@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7rnogccrrrnq"
-path="res://.godot/imported/gray_background.jpg-b24a1a9d747fcf6931291171c5d01c0f.ctex"
+uid="uid://bewnv5mw2xjbq"
+path="res://.godot/imported/kid.png-fd4dfff64a60f54232a2fad6d739c03d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/gray_background.jpg"
-dest_files=["res://.godot/imported/gray_background.jpg-b24a1a9d747fcf6931291171c5d01c0f.ctex"]
+source_file="res://assets/character/kid.png"
+dest_files=["res://.godot/imported/kid.png-fd4dfff64a60f54232a2fad6d739c03d.ctex"]
 
 [params]
 

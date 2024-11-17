@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://tioufd3laalf" path="res://assets/character/pop_walk/5.png" id="5_ek0pi"]
 [ext_resource type="Texture2D" uid="uid://bvea2od54jyin" path="res://assets/character/pop_idle/4.png" id="5_mnb5e"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="5_pvhaj"]
-[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
+[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="5_xvpaw"]
 [ext_resource type="Texture2D" uid="uid://dwp1vc0g25tas" path="res://assets/character/pop_melee/1.png" id="6_awvy0"]
 [ext_resource type="Texture2D" uid="uid://cksf7ysjtol8l" path="res://assets/character/pop_walk/6.png" id="6_nju8r"]
 [ext_resource type="Texture2D" uid="uid://c83fjwrsac75v" path="res://assets/character/pop_walk/7.png" id="7_0d0wx"]
@@ -132,11 +132,6 @@ one_shot = true
 [node name="PlayableMoveComponent" parent="." node_paths=PackedStringArray("target", "dodge_timer", "animated_sprite") instance=ExtResource("3_ud7by")]
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
-base_speed = 350
-run_speed = 600.0
-defend_speed = 120.0
-jump_velocity = -600
-roll_speed = 600
 animated_sprite = NodePath("../Sprite2D")
 
 [node name="Walk" type="AudioStreamPlayer2D" parent="PlayableMoveComponent"]

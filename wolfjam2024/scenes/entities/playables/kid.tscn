@@ -1,34 +1,47 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp4uowlnbh4dd"]
+[gd_scene load_steps=11 format=3 uid="uid://cp4uowlnbh4dd"]
 
+[ext_resource type="Texture2D" uid="uid://bewnv5mw2xjbq" path="res://assets/character/kid.png" id="1_2aofb"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="2_f31ti"]
 [ext_resource type="PackedScene" uid="uid://co6op0dk5axm1" path="res://scenes/weapons/rifle.tscn" id="2_sgf03"]
 [ext_resource type="PackedScene" uid="uid://ux7v8q3df13n" path="res://scenes/components/playable_follow_component.tscn" id="3_gpq61"]
 [ext_resource type="AudioStream" uid="uid://xwpw7x4xx04p" path="res://assets/Sounds/walking.mp3" id="3_vqy5l"]
 [ext_resource type="PackedScene" uid="uid://cxi4odhw67hmw" path="res://scenes/components/gravity_component.tscn" id="4_b4oee"]
-[ext_resource type="PackedScene" uid="uid://b4pnjrnu6353c" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
+[ext_resource type="PackedScene" path="res://scenes/components/playable_attack_component.tscn" id="6_1r636"]
 [ext_resource type="PackedScene" uid="uid://cq33uoiixicqi" path="res://scenes/components/health_component.tscn" id="7_8hd1u"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_axra0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_82786"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2aofb")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2aofb")
+}],
 "loop": true,
 "name": &"melee",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2aofb")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5d8yu"]
+radius = 15.0629
+height = 115.14
+
 [node name="Kid" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
 collision_layer = 4
 collision_mask = 3
 
@@ -41,18 +54,20 @@ max_value = 3.0
 rounded = true
 show_percentage = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(6.30689, -6.2706)
-shape = SubResource("RectangleShape2D_axra0")
-
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(-0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_82786")
-animation = &"melee"
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-20, -33)
+scale = Vector2(6.30689, -6.2706)
+shape = SubResource("CapsuleShape2D_5d8yu")
 
 [node name="Rifle" parent="." instance=ExtResource("2_sgf03")]
-position = Vector2(-251, -153)
+position = Vector2(-469, -507)
 rotation = 0.116627
+scale = Vector2(3, 3)
 
 [node name="DodgeTimer" type="Timer" parent="."]
 wait_time = 0.25
@@ -62,9 +77,6 @@ one_shot = true
 target = NodePath("..")
 dodge_timer = NodePath("../DodgeTimer")
 base_speed = 600
-run_speed = 600.0
-defend_speed = 120.0
-jump_velocity = -600
 roll_speed = 0
 animated_sprite = NodePath("../Sprite2D")
 
