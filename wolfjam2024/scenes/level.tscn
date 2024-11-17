@@ -65,6 +65,7 @@ target2 = NodePath("../Player/Kid")
 camera = NodePath("../CameraAnchor")
 
 [node name="Enemy" parent="." instance=ExtResource("5_27dix")]
+visible = false
 position = Vector2(432, 107)
 
 [node name="Parallax2D" type="ParallaxBackground" parent="."]
