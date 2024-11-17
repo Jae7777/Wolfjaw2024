@@ -27,6 +27,7 @@ func move_left() -> void:
         if !walk.playing:  # Start playing the sound only if it isn't already playing
             walk.play()
         if sprint_toggle:
+            animated_sprite.play("run")
             target.velocity.x = -run_speed
         else:
             animated_sprite.play("walk")
@@ -39,6 +40,7 @@ func move_right() -> void:
         if !walk.playing:  # Start playing the sound only if it isn't already playing
             walk.play()
         if sprint_toggle:
+            animated_sprite.play("run")
             target.velocity.x = run_speed
         else:
             animated_sprite.play("walk")

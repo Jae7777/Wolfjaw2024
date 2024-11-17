@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://u0ddmf11rfgs"
+path="res://.godot/imported/Fine Mist.ogg-a663d0e80d8611699ac922a71a581a2f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Sounds/Fine Mist.ogg"
+dest_files=["res://.godot/imported/Fine Mist.ogg-a663d0e80d8611699ac922a71a581a2f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
