@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cifylxywulch3" path="res://assets/character/pop_walk/1.png" id="1_vb0of"]
 [ext_resource type="Texture2D" uid="uid://dvjwwcs1xru78" path="res://assets/character/pop_walk/2.png" id="2_61nyk"]
 [ext_resource type="Texture2D" uid="uid://g14tld6o6qpg" path="res://assets/character/pop_idle/1.png" id="2_adrhq"]
-[ext_resource type="PackedScene" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
+[ext_resource type="PackedScene" uid="uid://cgkguxs525cxq" path="res://scenes/weapons/fists.tscn" id="2_fmxsh"]
 [ext_resource type="Texture2D" uid="uid://bh0bffxspd0xu" path="res://assets/character/pop_idle/2.png" id="3_hwjrq"]
 [ext_resource type="PackedScene" uid="uid://fwvjbcqvt4cp" path="res://scenes/components/playable_move_component.tscn" id="3_ud7by"]
 [ext_resource type="Texture2D" uid="uid://7edokrsrpah7" path="res://assets/character/pop_walk/3.png" id="3_x2uj1"]

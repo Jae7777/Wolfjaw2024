@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://co6op0dk5axm1"]
 
-[ext_resource type="Texture2D" uid="uid://tec0knii7luu" path="res://assets/weapons/Mosin Nagant-Scope.png" id="1_5r2tr"]
 [ext_resource type="Script" path="res://scenes/weapons/rifle.gd" id="1_6mh5u"]
 [ext_resource type="PackedScene" uid="uid://bejeg2dm3alah" path="res://scenes/components/spawn_projectile_component.tscn" id="2_a27mx"]
+[ext_resource type="Texture2D" uid="uid://c3lod0hd441cc" path="res://assets/weapons/Gun_2.png" id="2_aaa41"]
 [ext_resource type="Texture2D" uid="uid://bihw6x2shwf47" path="res://assets/particle.png" id="2_xuxrc"]
 [ext_resource type="PackedScene" uid="uid://qlkdh1wego30" path="res://scenes/projectiles/bullet.tscn" id="3_5sltq"]
 [ext_resource type="AudioStream" uid="uid://obv4jdqw6nvc" path="res://assets/Sounds/single-gunshot-54-40780.mp3" id="6_nf38r"]
@@ -31,10 +31,10 @@ script = ExtResource("1_6mh5u")
 fire_timer = NodePath("FireTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5r2tr")
+texture = ExtResource("2_aaa41")
 
 [node name="ProjectileSpawnPoint" type="Node2D" parent="Sprite2D"]
-position = Vector2(129, -3)
+position = Vector2(849, 28)
 
 [node name="GunParticle" type="GPUParticles2D" parent="Sprite2D/ProjectileSpawnPoint"]
 material = SubResource("CanvasItemMaterial_typda")

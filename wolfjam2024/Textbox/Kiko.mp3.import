@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cxsf08o48osiy"
-path="res://.godot/imported/Kiko.mp3-ee1db9100051568c4b601c36d51a6b04.mp3str"
+path="res://.godot/imported/Kiko.mp3-916840f5a0cb28c42fe424ebc3e742af.mp3str"
 
 [deps]
 
-source_file="res://textbox/Kiko.mp3"
-dest_files=["res://.godot/imported/Kiko.mp3-ee1db9100051568c4b601c36d51a6b04.mp3str"]
+source_file="res://Textbox/Kiko.mp3"
+dest_files=["res://.godot/imported/Kiko.mp3-916840f5a0cb28c42fe424ebc3e742af.mp3str"]
 
 [params]
 

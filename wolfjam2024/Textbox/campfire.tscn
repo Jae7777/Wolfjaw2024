@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://textbox/campfire.gd" id="1_dnlpr"]
 [ext_resource type="Texture2D" uid="uid://djvmh5pspo34r" path="res://assets/campfire.png" id="2_tngvo"]
-[ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://textbox/bedstead.regular.otf" id="3_bkrw7"]
+[ext_resource type="FontFile" uid="uid://b3y3sa2so5lle" path="res://Textbox/bedstead.regular.otf" id="3_bkrw7"]
 [ext_resource type="Shader" path="res://textbox/speaker1_active.gdshader" id="4_wc8v8"]
 [ext_resource type="Texture2D" uid="uid://cr31r5ovx8h53" path="res://assets/Portraits/Kiko.png" id="5_08ndf"]
 [ext_resource type="Shader" path="res://textbox/speaker2_active.gdshader" id="6_rkgj3"]
 [ext_resource type="Texture2D" uid="uid://17o8hwv2iqi" path="res://assets/Portraits/Talos.png" id="7_jlo68"]
-[ext_resource type="AudioStream" uid="uid://cxsf08o48osiy" path="res://textbox/Kiko.mp3" id="8_tbqt1"]
+[ext_resource type="AudioStream" uid="uid://cxsf08o48osiy" path="res://Textbox/Kiko.mp3" id="8_tbqt1"]
 [ext_resource type="AudioStream" uid="uid://dftqahhim1fua" path="res://assets/Sounds/Safe Burning.ogg" id="9_01tcl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iussw"]

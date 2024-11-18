@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b3y3sa2so5lle"
-path="res://.godot/imported/bedstead.regular.otf-2f4dc9d50818aa3c3032299a25bc396e.fontdata"
+path="res://.godot/imported/bedstead.regular.otf-4bf0ade1e52d5c2dde0ee3112eef39b2.fontdata"
 
 [deps]
 
-source_file="res://textbox/bedstead.regular.otf"
-dest_files=["res://.godot/imported/bedstead.regular.otf-2f4dc9d50818aa3c3032299a25bc396e.fontdata"]
+source_file="res://Textbox/bedstead.regular.otf"
+dest_files=["res://.godot/imported/bedstead.regular.otf-4bf0ade1e52d5c2dde0ee3112eef39b2.fontdata"]
 
 [params]
 

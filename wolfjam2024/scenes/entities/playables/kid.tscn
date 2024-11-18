@@ -136,9 +136,9 @@ scale = Vector2(6.30689, -6.2706)
 shape = SubResource("CapsuleShape2D_5d8yu")
 
 [node name="Rifle" parent="." instance=ExtResource("2_sgf03")]
-position = Vector2(-469, -507)
+position = Vector2(-40, -660)
 rotation = 0.116627
-scale = Vector2(3, 3)
+scale = Vector2(0.8, 0.8)
 
 [node name="DodgeTimer" type="Timer" parent="."]
 wait_time = 0.25
